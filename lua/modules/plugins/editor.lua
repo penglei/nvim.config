@@ -66,6 +66,11 @@ editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
+editor["ggandor/leap.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
+	config = require("editor.leap"),
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
