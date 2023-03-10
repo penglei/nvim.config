@@ -55,6 +55,7 @@ return function()
 				border = border("CmpDocBorder"),
 			},
 		},
+		preselect = cmp.PreselectMode.None,
 		sorting = {
 			priority_weight = 2,
 			comparators = {
