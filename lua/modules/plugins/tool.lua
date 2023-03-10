@@ -77,11 +77,11 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-lua/popup.nvim" },
 		{ "debugloop/telescope-undo.nvim" },
-		{
-			"ahmedkhalf/project.nvim",
-			event = "BufReadPost",
-			config = require("tool.project"),
-		},
+		-- {
+		-- 	"ahmedkhalf/project.nvim",
+		-- 	event = "BufReadPost",
+		-- 	config = require("tool.project"),
+		-- },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
 			{ "kkharji/sqlite.lua" },
