@@ -1,3 +1,13 @@
+---@class map_rhs
+---@field cmd string
+---@field options table
+---@field options.noremap boolean
+---@field options.silent boolean
+---@field options.expr boolean
+---@field options.nowait boolean
+---@field options.callback function
+---@field options.desc string
+---@field buffer boolean|number
 local rhs_options = {}
 
 function rhs_options:new()
@@ -155,4 +165,3 @@ function bind.nvim_load_mapping(mapping)
 end
 
 return bind
-
