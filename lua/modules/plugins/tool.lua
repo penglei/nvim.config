@@ -64,6 +64,11 @@ tool["gelguy/wilder.nvim"] = {
 	config = require("tool.wilder"),
 	dependencies = { "romgrk/fzy-lua-native" },
 }
+tool["LeonHeidelbach/trailblazer.nvim"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = require("tool.trailblazer"),
+}
 
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --

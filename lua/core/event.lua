@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"startuptime",
 		"tsplayground",
 		"PlenaryTestPopup",
+		"fugitive",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
@@ -83,8 +84,8 @@ function autocmd.load_autocmds()
 			{ "BufWritePre", "*.bak", "setlocal noundofile" },
 			-- auto place to last edit
 			{ "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]] },
-            { "BufRead,BufNewFile", "*.ncl,*.nkl", "set filetype=nickel" },
-            { "BufRead,BufNewFile", "*.dhall", "set filetype=nickel" },
+			{ "BufRead,BufNewFile", "*.ncl,*.nkl", "set filetype=nickel" },
+			{ "BufRead,BufNewFile", "*.dhall", "set filetype=nickel" },
 		},
 		wins = {
 			-- Highlight current line only on focused window
@@ -115,8 +116,7 @@ function autocmd.load_autocmds()
 			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
 			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
 			{ "FileType", "*", [[setlocal formatoptions-=cro]] },
-			{ "FileType", "c,cpp", "nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
-			},
+			{ "FileType", "c,cpp", "nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>" },
 		},
 		yank = {
 			{ "TextYankPost", "*", [[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=300})]] },
