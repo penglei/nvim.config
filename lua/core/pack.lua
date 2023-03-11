@@ -10,28 +10,33 @@ local icons = {
 	misc = require("modules.utils.icons").get("misc"),
 }
 
-local Lazy = {
-    plugins = {
-        "modules.plugins.ui",
-        "modules.plugins.completion",
-        "modules.plugins.editor",
-        "modules.plugins.lang",
-        "modules.plugins.tool",
-    },
-}
+local Lazy = {}
+
+function Lazy:plugins()
+	return {
+		require("modules.plugins.ui"),
+		require("modules.plugins.completion"),
+		require("modules.plugins.editor"),
+		require("modules.plugins.lang"),
+		require("modules.plugins.tool"),
+	}
+end
 
 function Lazy:ensure_loader()
-    if not vim.loop.fs_stat(lazypath) then
-      vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-      })
-    end
+	if not vim.loop.fs_stat(lazypath) then
+		vim.fn.system({
+			"git",
+			"clone",
+			"--filter=blob:none",
+			"https://github.com/folke/lazy.nvim.git",
+			"--branch=stable",
+		})
+	end
 
 	local lazy_settings = {
 		git = {
 			-- log = { "-10" }, -- show the last 10 commits
 			timeout = 300,
-			url_format = clone_prefix,
 		},
 		install = {
 			-- install missing plugins on startup. This doesn't increase startup time.
@@ -83,31 +88,29 @@ function Lazy:ensure_loader()
 			},
 		},
 	}
-    return lazy_settings
+	return lazy_settings
 end
 
 function Lazy:load_plugins()
 	self.modules = {}
 
-	for _, m in ipairs(self.plugins) do
-        local modules = require(m)
-        if type(modules) == "table" then
-            for name, conf in pairs(modules) do
-                self.modules[#self.modules + 1] = vim.tbl_extend("force", { name }, conf)
-            end
-        end
-    end
+	for _, modules in ipairs(self:plugins()) do
+		if type(modules) == "table" then
+			for name, conf in pairs(modules) do
+				self.modules[#self.modules + 1] = vim.tbl_extend("force", { name }, conf)
+			end
+		end
+	end
 end
 
 function Lazy:load()
+	package.path = package.path
+		.. string.format(";%s;%s", modules_dir .. "/configs/?.lua", modules_dir .. "/configs/?/init.lua")
 
-    package.path = package.path .. string.format(";%s;%s", modules_dir .. "/configs/?.lua", modules_dir .. "/configs/?/init.lua")
-
-    self:load_plugins()
-    local lazy_settings = self:ensure_loader()
-    vim.opt.rtp:prepend(lazypath)
-    require("lazy").setup(self.modules, lazy_settings)
+	self:load_plugins()
+	local lazy_settings = self:ensure_loader()
+	vim.opt.rtp:prepend(lazypath)
+	require("lazy").setup(self.modules, lazy_settings)
 end
 
 Lazy:load()
-

@@ -16,7 +16,7 @@ local core_map = {
 	["n|D"] = map_cmd("d$"):with_desc("editn: Delete text to EOL"),
 	["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("editn: Next search result"),
 	["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("editn: Prev search result"),
-	["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("editn: Join next line"),
+	--["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("editn: Join next line"), ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
 	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
 	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
 	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_desc("window: Focus down"),
@@ -25,11 +25,11 @@ local core_map = {
 	["t|<C-l>"] = map_cmd("<Cmd>wincmd l<CR>"):with_silent():with_noremap():with_desc("window: Focus right"),
 	["t|<C-j>"] = map_cmd("<Cmd>wincmd j<CR>"):with_silent():with_noremap():with_desc("window: Focus down"),
 	["t|<C-k>"] = map_cmd("<Cmd>wincmd k<CR>"):with_silent():with_noremap():with_desc("window: Focus up"),
-	["n|<A-[>"] = map_cr("vertical resize -5"):with_silent():with_desc("window: Resize -5 vertically"),
-	["n|<A-]>"] = map_cr("vertical resize +5"):with_silent():with_desc("window: Resize +5 vertically"),
-	["n|<A-;>"] = map_cr("resize -2"):with_silent():with_desc("window: Resize -2 horizontally"),
-	["n|<A-'>"] = map_cr("resize +2"):with_silent():with_desc("window: Resize +2 horizontally"),
-  ["n|<leader>b"] = map_cr("enew"):with_silent():with_desc("new buffer"),
+	--["n|<A-[>"] = map_cr("vertical resize -5"):with_silent():with_desc("window: Resize -5 vertically"),
+	--["n|<A-]>"] = map_cr("vertical resize +5"):with_silent():with_desc("window: Resize +5 vertically"),
+	--["n|<A-;>"] = map_cr("resize -2"):with_silent():with_desc("window: Resize -2 horizontally"),
+	--["n|<A-'>"] = map_cr("resize +2"):with_silent():with_desc("window: Resize +2 horizontally"),
+	["n|<ESC>"] = map_cmd("<Cmd>noh<CR>"):with_silent():with_desc("no highlight"),
 	-- Insert mode
 	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap():with_desc("editi: Delete previous block"),
 	["i|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editi: Move cursor to left"),
@@ -49,9 +49,6 @@ local core_map = {
 	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
 	["v|<"] = map_cmd("<gv"):with_desc("editv: Decrease indent"),
 	["v|>"] = map_cmd(">gv"):with_desc("editv: Increase indent"),
-  -- Terminal
-  -- ["t|<C-x>"] = map_cmd([[<C-\><C-n>]]):with_silent():with_desc("editv: Increase indent"),
-  ["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_silent():with_desc("escape terminal mode"),
 }
 
 bind.nvim_load_mapping(core_map)

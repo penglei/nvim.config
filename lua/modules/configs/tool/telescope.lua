@@ -5,18 +5,27 @@ return function()
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
+			results_title = false,
 			prompt_prefix = " " .. icons.ui.Telescope .. " ",
 			selection_caret = icons.ui.ChevronRight,
 			scroll_strategy = "limit",
-			results_title = false,
+			sorting_strategy = "ascending",
 			layout_strategy = "horizontal",
-			path_display = { "absolute" },
-			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			layout_config = {
 				horizontal = {
-					preview_width = 0.5,
+					prompt_position = "top",
+					preview_width = 0.55,
+					results_width = 0.8,
 				},
+				vertical = {
+					mirror = false,
+				},
+				width = 0.87,
+				height = 0.80,
+				preview_cutoff = 120,
 			},
+			path_display = { "absolute" },
+			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
@@ -71,7 +80,6 @@ return function()
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
 	-- require("telescope").load_extension("notify")
-	-- require("telescope").load_extension("projects")
 	require("telescope").load_extension("undo")
 	require("telescope").load_extension("zoxide")
 end

@@ -5,7 +5,7 @@ _G._command_panel = function()
 		end,
 		layout_config = {
 			width = 0.6,
-			height = 0.6,
+			height = 0.7,
 			prompt_position = "top",
 		},
 	})

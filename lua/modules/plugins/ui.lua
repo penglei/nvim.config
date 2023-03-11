@@ -35,11 +35,11 @@ ui["zbirenbaum/neodim"] = {
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
-ui["karb94/neoscroll.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.neoscroll"),
-}
+--ui["karb94/neoscroll.nvim"] = {
+--	lazy = true,
+--	event = "BufReadPost",
+--	config = require("ui.neoscroll"),
+--}
 ui["shaunsingh/nord.nvim"] = { -- theme: nord
 	lazy = true,
 	config = require("ui.nord"),

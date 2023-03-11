@@ -39,14 +39,14 @@ editor["numToStr/Comment.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.comment"),
 }
-editor["sindrets/diffview.nvim"] = {
-	lazy = true,
-	cmd = { "DiffviewOpen", "DiffviewClose" },
-}
-editor["junegunn/vim-easy-align"] = {
-	lazy = true,
-	cmd = "EasyAlign",
-}
+--editor["sindrets/diffview.nvim"] = {
+--	lazy = true,
+--	cmd = { "DiffviewOpen", "DiffviewClose" },
+--}
+--editor["junegunn/vim-easy-align"] = {
+--	lazy = true,
+--	cmd = "EasyAlign",
+--}
 editor["phaazon/hop.nvim"] = {
 	lazy = true,
 	branch = "v2",
@@ -58,11 +58,7 @@ editor["RRethy/vim-illuminate"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
-editor["luukvbaal/stabilize.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
-editor["romainl/vim-cool"] = {
+editor["romainl/vim-cool"] = { -- better search highlighting
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
