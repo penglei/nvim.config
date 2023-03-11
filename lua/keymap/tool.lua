@@ -13,8 +13,8 @@ local plug_map = {
 	--["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
-	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
-	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
+	["n|<leader>n"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	--["n|<leader>e"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	--["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 
 	-- Plugin: sniprun
@@ -23,22 +23,21 @@ local plug_map = {
 
 	-- Plugin: toggleterm
 
-	["t|<C-x>"] = map_callback(function()
-			return et("<C-\\><C-n>")
-		end)
-		:with_expr()
-		:with_desc("terminal: escape terminal mode"), -- switch to normal mode in terminal.
+	-- ["t|<C-x>"] = map_callback(function()
+	-- 		return et("<C-\\><C-n>")
+	-- 	end)
+	-- 	:with_expr()
+	-- 	:with_desc("terminal: escape terminal mode"), -- switch to normal mode in terminal.
 	["t|<Esc><Esc>"] = map_cmd(et([[<C-\><C-n>]])):with_silent():with_desc("escape terminal mode"), -- switch to normal mode in terminal.
-	--["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
-	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
+	["n|<leader>b"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["i|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
+	["i|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["t|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
+	["t|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
@@ -73,11 +72,11 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show workspace diagnostics"),
-	["n|<leader>tq"] = map_cr("TroubleToggle quickfix")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show quickfix list"),
-	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
+	-- ["n|<leader>tq"] = map_cr("TroubleToggle quickfix")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("lsp: Show quickfix list"),
+	-- ["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
 	["n|<C-p>"] = map_cmd("<Cmd>Telescope commands<CR>"):with_silent():with_desc("tool: Toggle commands panel"),

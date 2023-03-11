@@ -24,8 +24,9 @@ return function()
 			"python",
 			"rust",
 			"typescript",
-			"vue",
 			"yaml",
+			"nickel",
+			"nix",
 		},
 		highlight = {
 			enable = true,

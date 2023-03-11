@@ -24,7 +24,7 @@ vim.opt.cmdheight = 1
 
 vim.opt.foldenable = true
 vim.opt.foldmethod = "syntax"
-vim.opt.foldlevel = 2
+vim.opt.foldlevel = 99 -- foldenable and open all default (only fold > 100 level)
 
 vim.opt.wildignorecase = true
 vim.opt.wildignore = {
