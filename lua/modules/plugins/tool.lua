@@ -121,4 +121,10 @@ tool["mfussenegger/nvim-dap"] = {
 	},
 }
 
+tool["penglei/symbols-outline.nvim"] = {
+	lazy = true,
+	cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+	config = require("tool.symbols-outline"),
+}
+
 return tool

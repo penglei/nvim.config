@@ -15,6 +15,9 @@ vim.opt.timeoutlen = 400
 vim.opt.undofile = true
 vim.opt.showmode = false
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.laststatus = 3
 vim.opt.statusline = " "
 vim.opt.cmdheight = 1

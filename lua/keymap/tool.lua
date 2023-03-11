@@ -3,6 +3,7 @@ local map_cr = bind.map_cr
 local map_cu = bind.map_cu
 local map_cmd = bind.map_cmd
 local map_callback = bind.map_callback
+local et = bind.escape_termcode
 require("keymap.helpers")
 
 local plug_map = {
@@ -21,7 +22,13 @@ local plug_map = {
 	--["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent():with_desc("tool: Run code by file"),
 
 	-- Plugin: toggleterm
-	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_silent():with_desc("escape terminal mode"), -- switch to normal mode in terminal.
+
+	["t|<C-x>"] = map_callback(function()
+			return et("<C-\\><C-n>")
+		end)
+		:with_expr()
+		:with_desc("terminal: escape terminal mode"), -- switch to normal mode in terminal.
+	["t|<Esc><Esc>"] = map_cmd(et([[<C-\><C-n>]])):with_silent():with_desc("escape terminal mode"), -- switch to normal mode in terminal.
 	--["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
 	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
@@ -35,45 +42,23 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["i|<A-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["t|<A-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["t|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
+	["n|<A-i>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
-	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
+	["i|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
-	["t|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["t|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+
 	--["n|<leader>g"] = map_callback(function()
 	--		_toggle_lazygit()
 	--	end)
 	--	:with_noremap()
 	--	:with_silent()
 	--	:with_desc("git: Toggle lazygit"),
+
 	-- Plugin: trouble
 	--["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
@@ -95,13 +80,14 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-p>"] = map_callback(function()
+	["n|<C-p>"] = map_cmd("<Cmd>Telescope commands<CR>"):with_silent():with_desc("tool: Toggle commands panel"),
+	["n|<leader>fp"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("tool: Toggle command panel"),
-	["n|<leader>u"] = map_callback(function()
+		:with_desc("tool: Toggle key-map command panel"),
+	["n|<leader>fu"] = map_callback(function()
 			require("telescope").extensions.undo.undo()
 		end)
 		:with_noremap()

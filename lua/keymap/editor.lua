@@ -29,37 +29,39 @@ local plug_map = {
 
 	-- Plugin: comment.nvim
 	["n|<leader>/"] = map_callback(function()
-			return vim.v.count == 0 and et("<Plug>(comment_toggle_linewise_current)")
-				or et("<Plug>(comment_toggle_linewise_count)")
+			require("Comment.api").toggle.linewise.current()
 		end)
 		:with_silent()
 		:with_noremap()
-		:with_expr()
-		:with_desc("edit: Toggle comment for line"),
-	["n|gbc"] = map_callback(function()
-			return vim.v.count == 0 and et("<Plug>(comment_toggle_blockwise_current)")
-				or et("<Plug>(comment_toggle_blockwise_count)")
-		end)
+		:with_desc("edit: toggle line-comments"),
+	["v|<leader>/"] = map_cmd("<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
 		:with_silent()
 		:with_noremap()
-		:with_expr()
-		:with_desc("edit: Toggle comment for block"),
-	["n|gc"] = map_cmd("<Plug>(comment_toggle_linewise)")
-		:with_silent()
-		:with_noremap()
-		:with_desc("edit: Toggle comment for line with operator"),
-	["n|gb"] = map_cmd("<Plug>(comment_toggle_blockwise)")
-		:with_silent()
-		:with_noremap()
-		:with_desc("edit: Toggle comment for block with operator"),
-	["x|gc"] = map_cmd("<Plug>(comment_toggle_linewise_visual)")
-		:with_silent()
-		:with_noremap()
-		:with_desc("edit: Toggle comment for line with selection"),
-	["x|gb"] = map_cmd("<Plug>(comment_toggle_blockwise_visual)")
-		:with_silent()
-		:with_noremap()
-		:with_desc("edit: Toggle comment for block with selection"),
+		:with_desc("edit: toggle selected line-comments"),
+	-- ["n|gbc"] = map_callback(function()
+	-- 		return vim.v.count == 0 and et("<Plug>(comment_toggle_blockwise_current)")
+	-- 			or et("<Plug>(comment_toggle_blockwise_count)")
+	-- 	end)
+	-- 	:with_silent()
+	-- 	:with_noremap()
+	-- 	:with_expr()
+	-- 	:with_desc("edit: Toggle comment for block"),
+	-- ["n|gc"] = map_cmd("<Plug>(comment_toggle_linewise)")
+	-- 	:with_silent()
+	-- 	:with_noremap()
+	-- 	:with_desc("edit: Toggle comment for line with operator"),
+	-- ["n|gb"] = map_cmd("<Plug>(comment_toggle_blockwise)")
+	-- 	:with_silent()
+	-- 	:with_noremap()
+	-- 	:with_desc("edit: Toggle comment for block with operator"),
+	-- ["x|gc"] = map_cmd("<Plug>(comment_toggle_linewise_visual)")
+	-- 	:with_silent()
+	-- 	:with_noremap()
+	-- 	:with_desc("edit: Toggle comment for line with selection"),
+	-- ["x|gb"] = map_cmd("<Plug>(comment_toggle_blockwise_visual)")
+	-- 	:with_silent()
+	-- 	:with_noremap()
+	-- 	:with_desc("edit: Toggle comment for block with selection"),
 
 	-- Plugin: diffview
 	--["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),

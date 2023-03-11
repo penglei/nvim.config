@@ -61,6 +61,7 @@
   "smartyank.nvim": { "branch": "master", "commit": "7e3905578f646503525b2f7018b8afd17861018c" },
   "specs.nvim": { "branch": "main", "commit": "2743e412bbe21c9d73954c403d01e8de7377890d" },
   "sqlite.lua": { "branch": "master", "commit": "5162c8e2cc580f66ffe4bb4a7ae97a412596faba" },
+  "symbols-outline.nvim": { "branch": "master", "commit": "a6f8f1d6f44c12f0d3e3c7b73b2507c112d48e79" },
   "tabout.nvim": { "branch": "master", "commit": "c37ce26f316a2df693140450b8def41e89c0f57e" },
   "telescope-frecency.nvim": { "branch": "master", "commit": "e5696afabd8753d772987ea48434d9c0d8b0aa6b" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
