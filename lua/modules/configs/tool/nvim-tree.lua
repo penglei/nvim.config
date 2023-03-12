@@ -17,7 +17,7 @@ return function()
 		open_on_setup = false,
 		open_on_setup_file = false,
 		open_on_tab = false,
-		respect_buf_cwd = false,
+		respect_buf_cwd = true, --
 		sort_by = "name",
 		sync_root_with_cwd = true,
 		view = {

@@ -6,19 +6,6 @@ local map_callback = bind.map_callback
 local et = bind.escape_termcode
 require("keymap.helpers")
 
-local function toggle_diagnostic()
-	local show = true
-	return function()
-		if show then
-			show = false
-			vim.diagnostic.hide()
-		else
-			show = true
-			vim.diagnostic.show()
-		end
-	end
-end
-
 local plug_map = {
 	-- Plugin: vim-fugitive
 	--["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
@@ -26,7 +13,7 @@ local plug_map = {
 	--["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
-	["n|<leader>n"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	["n|<leader>e"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("nvim-tree: Toggle"),
 	--["n|<leader>e"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	--["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 
@@ -66,6 +53,8 @@ local plug_map = {
 	--	:with_silent()
 	--	:with_desc("git: Toggle lazygit"),
 
+	["n|<leader>v"] = map_cu("DiagnosticAutoToggle"):with_desc("tool: Toggle show diagnostics"),
+
 	-- Plugin: trouble
 	--["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
@@ -85,9 +74,6 @@ local plug_map = {
 	-- 	:with_silent()
 	-- 	:with_desc("lsp: Show quickfix list"),
 	-- ["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
-
-	["n|<C-x>"] = map_callback(toggle_diagnostic()):with_expr():with_desc("tool: Toggle show diagnostics"),
-	["i|<C-x>"] = map_callback(toggle_diagnostic()):with_expr():with_desc("tool: Toggle show diagnostics"),
 
 	-- Plugin: telescope
 	["n|<leader>fp"] = map_cmd("<Cmd>Telescope commands<CR>"):with_silent():with_desc("tool: Toggle commands panel"),

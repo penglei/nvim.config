@@ -1,10 +1,10 @@
 local editor = {}
 
-editor["rainbowhxch/accelerated-jk.nvim"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("editor.accelerated-jk"),
-}
+-- editor["rainbowhxch/accelerated-jk.nvim"] = {
+-- 	lazy = true,
+-- 	event = "VeryLazy",
+-- 	config = require("editor.accelerated-jk"),
+-- }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
@@ -53,7 +53,7 @@ editor["phaazon/hop.nvim"] = {
 	event = "BufReadPost",
 	config = require("editor.hop"),
 }
-editor["RRethy/vim-illuminate"] = {
+editor["RRethy/vim-illuminate"] = { -- highlighting other word under cursor
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
@@ -62,7 +62,7 @@ editor["romainl/vim-cool"] = { -- better search highlighting
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
-editor["ggandor/leap.nvim"] = {
+editor["ggandor/leap.nvim"] = { -- two key quick jump by prefix 's'
 	lazy = true,
 	event = "VeryLazy",
 	config = require("editor.leap"),

@@ -52,6 +52,15 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>close<CR>", { silent = true })
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"alpha",
+	},
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>q<CR>", { silent = true })
+	end,
+})
 
 -- Fix fold issue of files opened by telescope
 vim.api.nvim_create_autocmd("BufRead", {

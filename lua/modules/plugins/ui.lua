@@ -1,5 +1,10 @@
 local ui = {}
 
+ui["goolord/alpha-nvim"] = {
+	lazy = true,
+	event = "BufWinEnter",
+	config = require("ui.alpha"),
+}
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },

@@ -7,12 +7,12 @@ local et = bind.escape_termcode
 
 local plug_map = {
 	-- Plugin: accelerate-jk
-	["n|j"] = map_callback(function()
-		return et("<Plug>(accelerated_jk_gj)")
-	end):with_expr(),
-	["n|k"] = map_callback(function()
-		return et("<Plug>(accelerated_jk_gk)")
-	end):with_expr(),
+	-- ["n|j"] = map_callback(function()
+	-- 	return et("<Plug>(accelerated_jk_gj)")
+	-- end):with_expr(),
+	-- ["n|k"] = map_callback(function()
+	-- 	return et("<Plug>(accelerated_jk_gk)")
+	-- end):with_expr(),
 
 	-- Plugin: auto_session
 	["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent():with_desc("session: Save"),
