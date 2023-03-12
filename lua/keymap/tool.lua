@@ -6,6 +6,19 @@ local map_callback = bind.map_callback
 local et = bind.escape_termcode
 require("keymap.helpers")
 
+local function toggle_diagnostic()
+	local show = true
+	return function()
+		if show then
+			show = false
+			vim.diagnostic.hide()
+		else
+			show = true
+			vim.diagnostic.show()
+		end
+	end
+end
+
 local plug_map = {
 	-- Plugin: vim-fugitive
 	--["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
@@ -23,24 +36,19 @@ local plug_map = {
 
 	-- Plugin: toggleterm
 
-	-- ["t|<C-x>"] = map_callback(function()
-	-- 		return et("<C-\\><C-n>")
-	-- 	end)
-	-- 	:with_expr()
-	-- 	:with_desc("terminal: escape terminal mode"), -- switch to normal mode in terminal.
 	["t|<Esc><Esc>"] = map_cmd(et([[<C-\><C-n>]])):with_silent():with_desc("escape terminal mode"), -- switch to normal mode in terminal.
 	["n|<leader>b"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["i|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
-	["t|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
+	-- ["i|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("terminal: Toggle horizontal"),
+	-- ["t|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("terminal: Toggle horizontal"),
 	["n|<A-i>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
@@ -78,9 +86,12 @@ local plug_map = {
 	-- 	:with_desc("lsp: Show quickfix list"),
 	-- ["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
+	["n|<C-x>"] = map_callback(toggle_diagnostic()):with_expr():with_desc("tool: Toggle show diagnostics"),
+	["i|<C-x>"] = map_callback(toggle_diagnostic()):with_expr():with_desc("tool: Toggle show diagnostics"),
+
 	-- Plugin: telescope
-	["n|<C-p>"] = map_cmd("<Cmd>Telescope commands<CR>"):with_silent():with_desc("tool: Toggle commands panel"),
-	["n|<leader>fp"] = map_callback(function()
+	["n|<leader>fp"] = map_cmd("<Cmd>Telescope commands<CR>"):with_silent():with_desc("tool: Toggle commands panel"),
+	["n|<leader>fm"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
