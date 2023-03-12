@@ -15,7 +15,7 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
-ui["j-hui/fidget.nvim"] = {
+ui["j-hui/fidget.nvim"] = { -- TODO BUG: conflict with clever-f while press 'f' in boot progress
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.fidget"),
