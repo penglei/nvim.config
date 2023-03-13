@@ -121,42 +121,42 @@ local plug_map = {
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
+			require("dap").toggle_breakpoint()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Toggle breakpoint"),
+	["n|<F7>"] = map_callback(function()
+			require("dap").step_into()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step into"),
+	["n|<F8>"] = map_callback(function()
+			require("dap").step_over()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step over"),
+	["n|<F9>"] = map_callback(function()
+			require("dap").step_out()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step out"),
+	["n|<F10>"] = map_callback(function()
 			require("dap").continue()
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Run/Continue"),
-	["n|<F7>"] = map_callback(function()
+	["n|<F11>"] = map_callback(function()
 			require("dap").terminate()
 			require("dapui").close()
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Stop"),
-	["n|<F8>"] = map_callback(function()
-			require("dap").toggle_breakpoint()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("debug: Toggle breakpoint"),
-	["n|<F9>"] = map_callback(function()
-			require("dap").step_into()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("debug: Step into"),
-	["n|<F10>"] = map_callback(function()
-			require("dap").step_out()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("debug: Step out"),
-	["n|<F11>"] = map_callback(function()
-			require("dap").step_over()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("debug: Step over"),
 	["n|<leader>db"] = map_callback(function()
 			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end)
