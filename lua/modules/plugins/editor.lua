@@ -64,7 +64,7 @@ editor["romainl/vim-cool"] = { -- better search highlighting
 }
 editor["ggandor/leap.nvim"] = { -- two key quick jump by prefix 's'
 	lazy = true,
-	event = "VeryLazy",
+	event = "BufReadPost",
 	config = require("editor.leap"),
 }
 
