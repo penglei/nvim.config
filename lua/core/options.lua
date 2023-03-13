@@ -26,6 +26,15 @@ vim.opt.foldenable = true
 vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 99 -- foldenable and open all default (only fold > 100 level)
 
+vim.opt.list = true
+vim.opt.listchars = { -- "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
+	tab = "» »",
+	nbsp = "+",
+	trail = "·",
+	extends = "→",
+	precedes = "←",
+}
+
 vim.opt.wildignorecase = true
 vim.opt.wildignore = {
 	".git",
