@@ -36,6 +36,8 @@ return function()
 		},
 		request_timeout = 3000,
 		finder = {
+			max_height = 0.6,
+			force_max_height = true,
 			keys = {
 				jump_to = "e",
 				edit = { "o", "<CR>" },
