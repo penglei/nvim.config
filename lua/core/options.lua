@@ -28,7 +28,7 @@ vim.opt.foldlevel = 99 -- foldenable and open all default (only fold > 100 level
 
 vim.opt.list = true
 vim.opt.listchars = { -- "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
-	tab = "» »",
+	tab = "  »",
 	nbsp = "+",
 	trail = "·",
 	extends = "→",
