@@ -6,6 +6,7 @@ return function()
 				-- "global_chron_buf_switch_group_chron",
 				-- "buffer_local_chron",
 			},
+			trail_mark_symbol_line_indicators_enabled = true,
 			mark_symbol = "•", --  will only be used if trail_mark_symbol_line_indicators_enabled = true
 			newest_mark_symbol = "", -- disable this mark symbol by setting its value to ""
 			cursor_mark_symbol = "󰍒", -- disable this mark symbol by setting its value to ""
@@ -17,9 +18,9 @@ return function()
 				motions = {
 					new_trail_mark = "ma",
 					track_back = "[b",
-					peek_move_next_down = "]]",
-					peek_move_previous_up = "[[",
-					move_to_nearest = "[]",
+					peek_move_next_down = "[n",
+					peek_move_previous_up = "[N",
+					move_to_nearest = "[l",
 					move_to_trail_mark_cursor = "<leader>mgc",
 					toggle_trail_mark_list = "<leader>tm",
 				},
