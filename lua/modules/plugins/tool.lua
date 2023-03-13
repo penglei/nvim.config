@@ -112,6 +112,7 @@ tool["mfussenegger/nvim-dap"] = {
 		"DapStepInto",
 		"DapStepOut",
 		"DapTerminate",
+		"DapUIToggle",
 	},
 	config = require("tool.dap"),
 	dependencies = {

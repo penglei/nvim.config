@@ -72,9 +72,9 @@ leader_map()
 clipboard_config()
 
 require("core.options")
+require("core.command")
 require("core.mapping")
 require("keymap")
-require("core.command")
 require("core.event")
 require("core.pack")
 

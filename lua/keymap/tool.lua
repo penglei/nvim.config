@@ -181,6 +181,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Open REPL"),
+
+	["n|<leader>dU"] = map_cu("DapUIToggle"):with_silent():with_desc("debug: toggle dapui"),
+	["n|<leader>ds"] = map_cu("DapContinue"):with_silent():with_desc("debug: start dap"),
 }
 
 bind.nvim_load_mapping(plug_map)

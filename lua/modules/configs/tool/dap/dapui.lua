@@ -4,6 +4,12 @@ return function()
 		dap = require("modules.utils.icons").get("dap"),
 	}
 
+	require("core.command").CreateDapUIToggle()
+
+	-- vim.api.nvim_create_user_command("DapUIToggle", function()
+	-- 	require("dapui").toggle()
+	-- end, {})
+
 	require("dapui").setup({
 		icons = { expanded = icons.ui.ArrowOpen, collapsed = icons.ui.ArrowClosed, current_frame = icons.ui.Indicator },
 		mappings = {

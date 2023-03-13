@@ -3,6 +3,8 @@ return function()
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
 
+	require("core.command").CreateDiagnosticAutoToggle()
+
 	require("lspconfig.ui.windows").default_options.border = "single"
 
 	local icons = {
