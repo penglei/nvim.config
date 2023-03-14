@@ -27,3 +27,5 @@ require("keymap.editor")
 --require("keymap.lang")
 require("keymap.tool")
 --require("keymap.ui")
+
+require("keymap.specific.dap-ui")
