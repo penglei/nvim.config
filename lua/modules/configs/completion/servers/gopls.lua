@@ -3,7 +3,7 @@ return {
 	flags = { debounce_text_changes = 500 },
 	cmd = { "gopls", "serve" },
 	root_dir = require("lspconfig.util").root_pattern({ ".git", "go.work" }), -- Don't use go.mod!
-	single_file_support = true, -- enable this!
+	single_file_support = false, -- enable this!
 	settings = {
 		gopls = {
 			usePlaceholders = true,

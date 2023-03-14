@@ -2,6 +2,8 @@ return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local lga_actions = require("telescope-live-grep-args.actions")
 
+	require("keymap/specific/telescope-prompt")
+
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
