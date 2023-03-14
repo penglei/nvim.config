@@ -68,4 +68,9 @@ completion["hrsh7th/nvim-cmp"] = {
 -- 	},
 -- }
 
+-- completion["dense-analysis/ale"] = {
+-- 	lazy = true,
+-- 	event = { "BufReadPost",},
+-- }
+
 return completion
