@@ -13,8 +13,8 @@ local plug_map = {
 	--["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
-	["n|<leader>e"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("nvim-tree: Toggle"),
-	["n|<leader>tt"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("nvim-tree: Toggle"),
+	["n|<leader>e"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("nvim-tree: Toggle"),
+	-- ["n|<leader>tt"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("nvim-tree: Toggle"),
 	--["n|<leader>e"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	--["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 
