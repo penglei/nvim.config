@@ -127,8 +127,8 @@ return function()
 					enable = true,
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 					exclude = {
-						filetype = { "notify", "qf", "diff", "fugitive", "fugitiveblame" },
-						buftype = { "terminal", "help" },
+						filetype = { "notify", "qf", "diff", "fugitive", "fugitiveblame", "Outline", "lspsagaoutline" },
+						buftype = { "terminal", "help", "nofile" },
 					},
 				},
 			},
