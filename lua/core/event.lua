@@ -132,7 +132,8 @@ function autocmd.load_autocmds()
 			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
 			{ "FileType", "*", [[setlocal formatoptions-=cro]] },
 			{ "FileType", "c,cpp", "nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>" },
-			{ "FileType", "yaml,json", "set shiftwidth=2" },
+			{ "FileType", "yaml,json", "set shiftwidth=2 " },
+			{ "FileType", "go", "set tabstop=2 shiftwidth=2" },
 		},
 		yank = {
 			{ "TextYankPost", "*", [[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=300})]] },
