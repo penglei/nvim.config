@@ -47,7 +47,7 @@ editor["numToStr/Comment.nvim"] = {
 --	lazy = true,
 --	cmd = "EasyAlign",
 --}
-editor["phaazon/hop.nvim"] = {
+editor["phaazon/hop.nvim"] = { -- <leader>w|j quick jump
 	lazy = true,
 	branch = "v2",
 	event = "BufReadPost",
@@ -94,10 +94,10 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),
 		},
-		{
-			"abecodes/tabout.nvim",
-			config = require("editor.tabout"),
-		},
+		-- { -- Occasionally, after pressing the Tab key, the cursor may move to an unexpected location.
+		-- 	"abecodes/tabout.nvim",
+		-- 	config = require("editor.tabout"),
+		-- },
 	},
 }
 
