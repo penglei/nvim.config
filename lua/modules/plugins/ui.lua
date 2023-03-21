@@ -15,7 +15,10 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
-ui["j-hui/fidget.nvim"] = { -- TODO BUG: conflict with clever-f while press 'f' in boot progress
+ui["j-hui/fidget.nvim"] = {
+	-- Standalone UI for nvim-lsp progress
+	-- TODO:
+	--   BUG: conflict with clever-f while press 'f' in boot progress
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.fidget"),
@@ -35,34 +38,44 @@ ui["nvim-lualine/lualine.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
+
 ui["zbirenbaum/neodim"] = {
+	-- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
 	lazy = true,
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
+
 --ui["karb94/neoscroll.nvim"] = {
 --	lazy = true,
 --	event = "BufReadPost",
 --	config = require("ui.neoscroll"),
 --}
+
 ui["shaunsingh/nord.nvim"] = { -- theme: nord
 	lazy = true,
 	config = require("ui.nord"),
 }
+
 -- ui["rcarriga/nvim-notify"] = {
 -- 	lazy = true,
 -- 	event = "VeryLazy",
 -- 	config = require("ui.notify"),
 -- }
+
 ui["folke/paint.nvim"] = { -- comment highlight
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.paint"),
 }
+
 ui["edluffy/specs.nvim"] = {
+	--Show where your cursor moves when jumping large distances
+	--  This plugin has a ugly implementation which create some unnecessary windows.
 	lazy = true,
 	event = "CursorMoved",
 	config = require("ui.specs"),
+	enabled = false,
 }
 
 return ui
