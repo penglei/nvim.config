@@ -78,4 +78,9 @@ ui["edluffy/specs.nvim"] = {
 	enabled = false,
 }
 
+ui["kevinhwang91/nvim-bqf"] = {
+	-- the better quickfix manager (trailblazer show marks in qf)
+	ft = "qf",
+}
+
 return ui
