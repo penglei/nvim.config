@@ -35,6 +35,10 @@ vim.opt.listchars = { -- "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
 	precedes = "←",
 }
 
+vim.opt.cursorcolumn = true
+vim.opt.cursorline = true
+vim.opt.diffopt = "filler,iwhite,internal,algorithm:patience"
+
 vim.opt.wildignorecase = true
 vim.opt.wildignore = {
 	".git",
@@ -63,3 +67,7 @@ vim.opt.whichwrap:append("<>[]hl")
 
 -- disable nvim intro
 vim.opt.shortmess:append("sI")
+
+vim.opt.jumpoptions = "stack"
+
+vim.opt.grepprg = "rg --hidden --vimgrep --smart-case --"
