@@ -13,6 +13,7 @@ return function()
 	}
 
 	mason.setup({
+		PATH = "append",
 		ui = {
 			border = "rounded",
 			icons = {
