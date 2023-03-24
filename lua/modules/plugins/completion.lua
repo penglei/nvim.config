@@ -23,7 +23,7 @@ completion["jose-elias-alvarez/null-ls.nvim"] = {
 		"jay-babu/mason-null-ls.nvim",
 	},
 }
-completion["hrsh7th/nvim-cmp"] = {
+completion["penglei/nvim-cmp"] = {
 	lazy = true,
 	event = "InsertEnter",
 	config = require("completion.cmp"),
