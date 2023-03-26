@@ -27,6 +27,7 @@ return vim.schedule_wrap(function()
 			"yaml",
 			"nickel",
 			"nix",
+			"scheme",
 		},
 		highlight = {
 			enable = true,
