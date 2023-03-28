@@ -73,4 +73,11 @@ completion["penglei/nvim-cmp"] = {
 -- 	event = { "BufReadPost",},
 -- }
 
+completion["eraserhd/parinfer-rust"] = {
+	dir = vim.fn.expand("$HOME/.config/local-nvim-plugins/parinfer-rust"),
+	config = function()
+		vim.g.parinfer_dylib_path = vim.fn.expand("$HOME/.nix-profile/lib/libparinfer_rust.dylib")
+	end,
+}
+
 return completion
