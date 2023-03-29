@@ -58,7 +58,7 @@ tool["folke/trouble.nvim"] = {
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 	config = require("tool.trouble"),
 }
-tool["gelguy/wilder.nvim"] = {
+tool["gelguy/wilder.nvim"] = { -- Automatically provides suggestions as you type ':'(command mode) or '/'(search mode)
 	lazy = true,
 	event = "CmdlineEnter",
 	config = require("tool.wilder"),
