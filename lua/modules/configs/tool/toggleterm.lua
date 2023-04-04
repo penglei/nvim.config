@@ -33,5 +33,12 @@ return function()
 		direction = "horizontal",
 		close_on_exit = true, -- close the terminal window when the process exits
 		shell = vim.o.shell, -- change the default shell
+		float_opts = {
+			-- border = "shadow", -- border = 'single' | 'double' | 'shadow' | 'curved'
+			width = function() -- auto resize
+				return math.ceil(math.min(vim.o.columns, math.max(80, vim.o.columns - 5)))
+			end,
+			height = math.ceil(math.min(vim.o.lines, math.max(20, vim.o.lines - 1))),
+		},
 	})
 end
