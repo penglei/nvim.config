@@ -94,4 +94,5 @@ return function()
 		nvim_lsp.dartls.setup(final_opts)
 	end
 	nvim_lsp.hls.setup({})
+	nvim_lsp.ocamllsp.setup({})
 end
