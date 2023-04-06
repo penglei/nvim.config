@@ -28,6 +28,7 @@ return vim.schedule_wrap(function()
 			"nickel",
 			"nix",
 			"scheme",
+			"elvish",
 		},
 		highlight = {
 			enable = true,
