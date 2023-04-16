@@ -53,6 +53,7 @@ return function(options)
 		on_attach = options.on_attach,
 		capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, options.capabilities),
 		single_file_support = true,
+		filetypes = { "c", "cpp" },
 		cmd = {
 			"clangd",
 			"--background-index",
