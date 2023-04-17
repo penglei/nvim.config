@@ -55,7 +55,6 @@ return function()
 				border = border("CmpDocBorder"),
 			},
 		},
-		preselect = cmp.PreselectMode.None,
 		sorting = {
 			priority_weight = 2,
 			comparators = {
@@ -81,24 +80,28 @@ return function()
 					symbol_map = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp),
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
-				kind.kind = " " .. strings[1] .. " "
-				kind.menu = "    (" .. strings[2] .. ")"
+				if #strings > 0 then
+					kind.kind = " " .. strings[1] .. " "
+				end
+				if #strings > 1 then
+					kind.menu = "    (" .. strings[2] .. ")"
+				end
 				return kind
 			end,
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-e>"] = cmp.mapping.close(),
+			["<C-w>"] = cmp.mapping.close(),
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif require("luasnip").expand_or_locally_jumpable() then
-					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"))
 				else
 					fallback()
 				end

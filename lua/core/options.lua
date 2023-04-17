@@ -11,7 +11,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 2
 vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 4
-vim.opt.timeoutlen = 400
+vim.opt.timeoutlen = 300
 vim.opt.undofile = true
 vim.opt.showmode = false
 

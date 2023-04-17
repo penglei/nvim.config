@@ -36,11 +36,9 @@ return function()
 		},
 		request_timeout = 3000,
 		finder = {
-			max_height = 0.6,
-			force_max_height = true,
 			keys = {
 				jump_to = "e",
-				edit = { "o", "<CR>" },
+				expand_or_jump = "<CR>",
 				vsplit = "s",
 				split = "i",
 				tabe = "t",
@@ -70,17 +68,19 @@ return function()
 			virtual_text = false,
 		},
 		diagnostic = {
+			text_hl_follow = true,
 			on_insert = true,
 			on_insert_follow = false,
 			show_code_action = true,
-			show_virt_line = true,
 			show_source = true,
 			border_follow = true,
+			extend_relatedInformation = false,
 			jump_num_shortcut = true,
 			keys = {
 				exec_action = "<CR>",
 				quit = "q",
-				go_action = "g",
+				expand_or_jump = "<CR>",
+				quit_in_show = { "q", "<ESC>" },
 			},
 		},
 		rename = {
@@ -97,9 +97,9 @@ return function()
 			auto_preview = false,
 			auto_refresh = true,
 			auto_close = true,
+			close_after_jump = true,
 			keys = {
-				jump = "<CR>",
-				expand_collapse = "u",
+				expand_or_jump = "<CR>",
 				quit = "q",
 			},
 		},
@@ -117,12 +117,12 @@ return function()
 		ui = {
 			border = "single", -- Can be single, double, rounded, solid, shadow.
 			winblend = 0,
+			actionfix = icons.ui.Spell,
 			expand = icons.ui.ArrowClosed,
 			collapse = icons.ui.ArrowOpen,
 			code_action = icons.ui.CodeAction,
 			incoming = icons.ui.Incoming,
 			outgoing = icons.ui.Outgoing,
-			diagnostic = " " .. icons.cmp.nvim_lsp,
 			kind = {
 				-- Kind
 				Class = { icons.kind.Class, "LspKindClass" },
