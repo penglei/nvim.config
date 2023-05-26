@@ -38,7 +38,7 @@ return function()
 			width = function() -- auto resize
 				return math.ceil(math.min(vim.o.columns, math.max(80, vim.o.columns - 5)))
 			end,
-			height = math.ceil(math.min(vim.o.lines, math.max(20, vim.o.lines - 1))),
+			height = math.ceil(math.min(vim.o.lines, math.max(20, vim.o.lines - 4))),
 		},
 	})
 end

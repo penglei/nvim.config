@@ -77,7 +77,7 @@ return function()
 			extend_relatedInformation = false,
 			jump_num_shortcut = true,
 			keys = {
-				exec_action = "<CR>",
+				exec_action = "r",
 				quit = "q",
 				expand_or_jump = "<CR>",
 				quit_in_show = { "q", "<ESC>" },
@@ -89,6 +89,10 @@ return function()
 			confirm = "<CR>",
 			exec = "<CR>",
 			in_select = true,
+		},
+		hover = {
+			open_link = "gl",
+			open_browser = "silent !" .. require("core.settings").external_browser,
 		},
 		outline = {
 			win_position = "right",
@@ -115,6 +119,7 @@ return function()
 			frequency = 12,
 		},
 		ui = {
+			title = false,
 			border = "single", -- Can be single, double, rounded, solid, shadow.
 			winblend = 0,
 			actionfix = icons.ui.Spell,

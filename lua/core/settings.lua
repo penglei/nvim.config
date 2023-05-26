@@ -4,6 +4,14 @@ local settings = {}
 ---@type boolean
 settings["format_on_save"] = true
 
+-- Set it to false if the notification after formatting is annoying.
+---@type boolean
+settings["format_notify"] = true
+
+-- Set it to false if diagnostics virtual text is annoying.
+---@type boolean
+settings["diagnostics_virtual_text"] = true
+
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 ---@type string[]
 settings["format_disabled_dirs"] = {}
@@ -23,7 +31,11 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
-settings["colorscheme"] = "catppuccin-macchiato"
+settings["colorscheme"] = "catppuccin"
+
+-- Set it to true if your terminal has transparent background.
+---@type boolean
+settings["transparent_background"] = false
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.
@@ -31,7 +43,12 @@ settings["colorscheme"] = "catppuccin-macchiato"
 ---@type "dark"|"light"
 settings["background"] = "dark"
 
--- Filetypes in this list will skip lsp formatting if rhs is true
+-- Set the command for handling external URLs here. The executable must be available on your $PATH.
+-- This entry is IGNORED on Windows and macOS, which have their default handlers builtin.
+---@type string
+settings["external_browser"] = "chrome-cli open"
+
+-- Filetypes in this list will skip lsp formatting if rhs is true.
 ---@type table<string, boolean>
 settings["formatter_block_list"] = {
 	lua = false, -- example
@@ -43,6 +60,7 @@ settings["server_formatting_block_list"] = {
 	lua_ls = true,
 	tsserver = true,
 	clangd = true,
+	pylsp = true,
 }
 
 -- Set the language servers that will be installed during bootstrap here
@@ -55,19 +73,18 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"pyright",
-	"gopls",
+	"pylsp",
+	-- "gopls",
 }
 
--- Set the general-purpose servers that will be installed during bootstrap here
--- check the below link for all supported sources
+-- Set the general-purpose servers that will be installed during bootstrap here.
+-- Check the below link for all supported sources.
 -- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
 	"black",
 	"clang_format",
-	"editorconfig_checker",
 	"prettier",
 	"rustfmt",
 	"shfmt",
