@@ -104,7 +104,7 @@ function autocmd.load_autocmds()
 			-- auto place to last edit
 			{ "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]] },
 			{ "BufRead,BufNewFile", "*.ncl,*.nkl", "set filetype=nickel" },
-			{ "BufRead,BufNewFile", "*.dhall", "set filetype=nickel" },
+			{ "BufRead,BufNewFile", "*.dhall", "set filetype=dhall" },
 		},
 		wins = {
 			-- Highlight current line only on focused window
