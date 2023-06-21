@@ -105,6 +105,7 @@ function autocmd.load_autocmds()
 			{ "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]] },
 			{ "BufRead,BufNewFile", "*.ncl,*.nkl", "set filetype=nickel" },
 			{ "BufRead,BufNewFile", "*.dhall", "set filetype=dhall" },
+			{ "BufRead,BufNewFile", "*.lalrpop", "set filetype=lalrpop" },
 		},
 		wins = {
 			-- Highlight current line only on focused window
