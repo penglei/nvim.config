@@ -101,7 +101,15 @@ return function()
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 		nvim_lsp.dartls.setup(final_opts)
 	end
-	nvim_lsp.hls.setup({})
+	nvim_lsp.hls.setup({
+		filetypes = { "haskell", "lhaskell", "cabal" },
+		-- haskell = { -- haskell-language-server options
+		-- 	formattingProvider = "ormolu",
+		-- 	cabalFormattingProvider = "cabalfmt",
+		-- 	-- Setting this to true could have a performance impact on large mono repos.
+		-- 	checkProject = true,
+		-- },
+	})
 	nvim_lsp.ocamllsp.setup({})
 	nvim_lsp.nickel_ls.setup({})
 end
