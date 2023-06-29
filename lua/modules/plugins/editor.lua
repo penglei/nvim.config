@@ -72,6 +72,10 @@ editor["ggandor/leap.nvim"] = { -- two key quick jump by prefix 's'
 	event = "BufReadPost",
 	config = require("editor.leap"),
 }
+editor["sdiehl/vim-cabalfmt"] = {
+	lazy = true,
+	event = "BufReadPost",
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
