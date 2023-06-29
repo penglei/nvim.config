@@ -102,10 +102,10 @@ return function()
 		nvim_lsp.dartls.setup(final_opts)
 	end
 	nvim_lsp.hls.setup({
-		filetypes = { "haskell", "lhaskell", "cabal" },
+		filetypes = { "haskell", "lhaskell" },
 		-- haskell = { -- haskell-language-server options
 		-- 	formattingProvider = "ormolu",
-		-- 	cabalFormattingProvider = "cabalfmt",
+		-- 	cabalFormattingProvider = "cabal-fmt",
 		-- 	-- Setting this to true could have a performance impact on large mono repos.
 		-- 	checkProject = true,
 		-- },
