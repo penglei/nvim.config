@@ -1,7 +1,9 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
-vim.opt.clipboard = "unnamedplus"
+--https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
+-- vim.opt.clipboard = "unnamedplus" -- I don't want to send system clipboard that would be watched other clipboard manager.
+
 vim.opt.cul = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4

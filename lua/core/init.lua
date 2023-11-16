@@ -69,7 +69,7 @@ end
 
 disable_distribution_plugins()
 leader_map()
-clipboard_config()
+-- clipboard_config()
 
 require("core.options")
 require("core.command")

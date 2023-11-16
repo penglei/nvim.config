@@ -6,12 +6,11 @@ return function()
 			timeout = 2000, -- timeout for clearing the highlight
 		},
 		clipboard = {
-			enabled = true,
+			enabled = false, -- `false` to disable copy to host clipboard
 		},
 		tmux = {
 			enabled = true,
-			-- remove `-w` to disable copy to host client's clipboard
-			cmd = { "tmux", "set-buffer", "-w" },
+			cmd = { "tmux", "set-buffer", "-w" }, -- remove `-w` to disable copy to host client's clipboard
 		},
 		osc52 = {
 			enabled = true,
