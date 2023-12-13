@@ -1,5 +1,4 @@
 return vim.schedule_wrap(function()
-	local use_ssh = require("core.settings").use_ssh
 
 	vim.api.nvim_set_option_value("foldmethod", "expr", {})
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
@@ -77,14 +76,7 @@ return vim.schedule_wrap(function()
 			extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
 			max_file_lines = 2000, -- Do not enable for files with more than 2000 lines, int
 		},
-		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
 	})
 	require("nvim-treesitter.install").prefer_git = true
-	if use_ssh then
-		local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-		for _, p in pairs(parsers) do
-			p.install_info.url = p.install_info.url:gsub("https://github.com/", "git@github.com:")
-		end
-	end
 end)

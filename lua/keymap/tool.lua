@@ -93,6 +93,8 @@ local plug_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 
+    --[[
+
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
 			require("dap").toggle_breakpoint()
@@ -158,6 +160,7 @@ local plug_map = {
 
 	["n|<leader>dU"] = map_cu("DapUIToggle"):with_silent():with_desc("debug: toggle dapui"),
 	["n|<leader>ds"] = map_cu("DapContinue"):with_silent():with_desc("debug: start dap"),
+    --]]
 }
 
 bind.nvim_load_mapping(plug_map)

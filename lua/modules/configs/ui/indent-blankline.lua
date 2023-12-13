@@ -1,8 +1,8 @@
 return function()
-	require("indent_blankline").setup({
-		char = "│",
-		show_first_indent_level = true,
-		filetype_exclude = {
+	require("ibl").setup({
+        scope = {
+            exclude = {
+		filetype = {
 			"", -- for all buffers without a file type
 			"NvimTree",
 			"TelescopePrompt",
@@ -23,9 +23,9 @@ return function()
 			"vimwiki",
 			"vista",
 		},
-		buftype_exclude = { "terminal", "nofile" },
-		show_trailing_blankline_indent = false,
-		show_current_context = true,
+		buftype = { "terminal", "nofile" },
+        },
+        --[[
 		context_patterns = {
 			"^if",
 			"^table",
@@ -42,6 +42,7 @@ return function()
 			"var",
 			"while",
 		},
-		space_char_blankline = " ",
+        --]]
+    }
 	})
 end

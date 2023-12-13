@@ -14,15 +14,7 @@ completion["neovim/nvim-lspconfig"] = {
 		},
 	},
 }
-completion["jose-elias-alvarez/null-ls.nvim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("completion.null-ls"),
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"jay-babu/mason-null-ls.nvim",
-	},
-}
+
 completion["penglei/nvim-cmp"] = {
 	lazy = true,
 	event = "InsertEnter",
@@ -44,34 +36,14 @@ completion["penglei/nvim-cmp"] = {
 		{ "hrsh7th/cmp-buffer" },
 		{ "kdheepak/cmp-latex-symbols" },
 		{ "ray-x/cmp-treesitter" },
-		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
-		-- {
-		-- 	"jcdickinson/codeium.nvim",
-		-- 	dependencies = {
-		-- 		"nvim-lua/plenary.nvim",
-		-- 		"MunifTanjim/nui.nvim",
-		-- 	},
-		-- 	config = require("completion.codeium"),
-		-- },
 	},
 }
--- completion["zbirenbaum/copilot.lua"] = {
--- 	lazy = true,
--- 	cmd = "Copilot",
--- 	event = "InsertEnter",
--- 	config = require("completion.copilot"),
--- 	dependencies = {
--- 		{
--- 			"zbirenbaum/copilot-cmp",
--- 			config = require("completion.copilot-cmp"),
--- 		},
--- 	},
--- }
 
--- completion["dense-analysis/ale"] = {
--- 	lazy = true,
--- 	event = { "BufReadPost",},
--- }
+
+completion["dense-analysis/ale"] = {
+	lazy = true,
+	event = { "BufReadPost",},
+}
 
 completion["eraserhd/parinfer-rust"] = {
 	dir = vim.fn.expand("$HOME/.config/local-nvim-plugins/parinfer-rust"),

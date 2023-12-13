@@ -1,5 +1,7 @@
 local M = {}
 
+--vim.notify("init formatting...")
+
 local settings = require("core.settings")
 local format_notify = settings.format_notify
 local disabled_workspaces = settings.format_disabled_dirs
@@ -11,6 +13,7 @@ vim.api.nvim_create_user_command("FormatToggle", function()
 end, {})
 
 local block_list = require("core.settings").formatter_block_list
+
 vim.api.nvim_create_user_command("FormatterToggleFt", function(opts)
 	if block_list[opts.args] == nil then
 		vim.notify(
@@ -40,7 +43,7 @@ function M.enable_format_on_save(is_configured)
 		group = "format_on_save",
 		pattern = opts.pattern,
 		callback = function()
-			require("completion.formatting").format({
+			M.format({
 				timeout_ms = opts.timeout,
 				filter = M.format_filter,
 			})
@@ -91,9 +94,7 @@ function M.format_filter(clients)
 		local status_ok, formatting_supported = pcall(function()
 			return client.supports_method("textDocument/formatting")
 		end)
-		if status_ok and formatting_supported and client.name == "null-ls" then
-			return "null-ls"
-		elseif not server_formatting_block_list[client.name] and status_ok and formatting_supported then
+		if not server_formatting_block_list[client.name] and status_ok and formatting_supported then
 			return client.name
 		end
 	end, clients)

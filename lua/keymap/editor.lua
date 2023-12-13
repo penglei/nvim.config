@@ -19,8 +19,10 @@ local plug_map = {
 	["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent():with_desc("session: Restore"),
 	["n|<leader>sd"] = map_cu("DeleteSession"):with_noremap():with_silent():with_desc("session: Delete"),
 
+	--[[ 看起来所有buffer管理的插件都会导致swp file异常的问题
 	-- Plugin: nvim-bufdel
 	["n|<leader>x"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
+	--]]
 
 	-- Plugin: clever-f
 	["n|;"] = map_callback(function()

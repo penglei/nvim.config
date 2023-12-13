@@ -20,10 +20,12 @@ M.CreateDiagnosticAutoToggle = function()
 	)
 end
 
+--[[
 M.CreateDapUIToggle = function()
 	vim.api.nvim_create_user_command("DapUIToggle", function()
 		require("dapui").toggle()
 	end, {})
 end
+--]]
 
 return M

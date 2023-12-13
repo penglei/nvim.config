@@ -1,20 +1,18 @@
 local editor = {}
 
--- editor["rainbowhxch/accelerated-jk.nvim"] = {
--- 	lazy = true,
--- 	event = "VeryLazy",
--- 	config = require("editor.accelerated-jk"),
--- }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
 	config = require("editor.auto-session"),
 }
+
+-- A minimalist Neovim plugin that auto pairs & closes brackets
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = true,
 	event = "InsertEnter",
 	config = require("editor.autoclose"),
 }
+
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -25,10 +23,20 @@ editor["LunarVim/bigfile.nvim"] = {
 	config = require("editor.bigfile"),
 	cond = require("core.settings").load_big_files_faster,
 }
+
+editor["penglei/symbols-outline.nvim"] = {
+	lazy = true,
+	cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+	config = require("tool.symbols-outline"),
+}
+
+--[[
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
 	event = "BufReadPost",
 }
+--]]
+
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -39,20 +47,7 @@ editor["numToStr/Comment.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.comment"),
 }
---editor["sindrets/diffview.nvim"] = {
---	lazy = true,
---	cmd = { "DiffviewOpen", "DiffviewClose" },
---}
---editor["junegunn/vim-easy-align"] = {
---	lazy = true,
---	cmd = "EasyAlign",
---}
-editor["phaazon/hop.nvim"] = { -- <leader>w|j quick jump
-	lazy = true,
-	branch = "v2",
-	event = "BufReadPost",
-	config = require("editor.hop"),
-}
+
 editor["RRethy/vim-illuminate"] = { -- highlighting other word under cursor
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -62,16 +57,20 @@ editor["romainl/vim-cool"] = { -- better search highlighting
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
-editor["lambdalisue/suda.vim"] = {
+
+editor["phaazon/hop.nvim"] = { -- <leader>w|j quick jump
 	lazy = true,
-	cmd = { "SudaRead", "SudaWrite" },
-	config = require("editor.suda"),
-}
-editor["ggandor/leap.nvim"] = { -- two key quick jump by prefix 's'
-	lazy = true,
+	branch = "v2",
 	event = "BufReadPost",
-	config = require("editor.leap"),
+	config = require("editor.hop"),
 }
+
+--editor["folke/flash.nvim"] = {
+--	lazy = true,
+--	event = { "CursorHold", "CursorHoldI" },
+--	config = require("editor.flash"),
+--}
+
 editor["sdiehl/vim-cabalfmt"] = {
 	lazy = true,
 	event = "BufReadPost",

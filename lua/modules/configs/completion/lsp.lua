@@ -1,5 +1,5 @@
 return function()
-	local nvim_lsp = require("lspconfig")
+	local lspconfig = require("lspconfig")
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
 
@@ -71,7 +71,7 @@ return function()
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec
-			nvim_lsp[lsp_name].setup(opts)
+			lspconfig[lsp_name].setup(opts)
 			return
 		elseif type(custom_handler) == "function" then
 			--- Case where language server requires its own setup
@@ -79,7 +79,7 @@ return function()
 			--- See `clangd.lua` for example.
 			custom_handler(opts)
 		elseif type(custom_handler) == "table" then
-			nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
+			lspconfig[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
 		else
 			vim.notify(
 				string.format(
@@ -99,9 +99,9 @@ return function()
 	if vim.fn.executable("dart") == 1 then
 		local _opts = require("completion.servers.dartls")
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-		nvim_lsp.dartls.setup(final_opts)
+		lspconfig.dartls.setup(final_opts)
 	end
-	nvim_lsp.hls.setup({
+	lspconfig.hls.setup({
 		filetypes = { "haskell", "lhaskell" },
 		-- haskell = { -- haskell-language-server options
 		-- 	formattingProvider = "ormolu",
@@ -110,6 +110,7 @@ return function()
 		-- 	checkProject = true,
 		-- },
 	})
-	nvim_lsp.ocamllsp.setup({})
-	nvim_lsp.nickel_ls.setup({})
+	lspconfig.ocamllsp.setup({})
+	lspconfig.nickel_ls.setup({})
+	lspconfig.nil_ls.setup{}
 end

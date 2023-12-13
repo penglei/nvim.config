@@ -19,6 +19,7 @@ lang["ray-x/go.nvim"] = {
 -- 	build = ":GoInstallBinaries",
 -- 	config = require("lang.vim-go"),
 -- }
+
 lang["simrat39/rust-tools.nvim"] = {
 	lazy = true,
 	ft = "rust",
@@ -31,6 +32,7 @@ lang["Saecki/crates.nvim"] = {
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
+
 lang["iamcco/markdown-preview.nvim"] = {
 	lazy = true,
 	ft = "markdown",

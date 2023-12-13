@@ -57,7 +57,7 @@ settings["formatter_block_list"] = {
 -- Servers in this list will skip setting formatting capabilities if rhs is true
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
-	lua_ls = true,
+   --lua_ls = true,
 	tsserver = true,
 	clangd = true,
 	pylsp = true,
@@ -74,22 +74,6 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
-	-- "gopls",
-}
-
--- Set the general-purpose servers that will be installed during bootstrap here.
--- Check the below link for all supported sources.
--- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
----@type string[]
-settings["null_ls_deps"] = {
-	"black",
-	"clang_format",
-	"prettier",
-	"rustfmt",
-	"shfmt",
-	"stylua",
-	"vint",
 }
 
 return settings
