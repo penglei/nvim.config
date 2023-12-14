@@ -45,7 +45,7 @@ local plug_map = {
 	--	:with_silent()
 	--	:with_desc("git: Toggle lazygit"),
 
-	["n|<leader>v"] = map_cu("DiagnosticAutoToggle"):with_desc("tool: Toggle show diagnostics"),
+	-- ["n|<leader>v"] = map_cu("DiagnosticAutoToggle"):with_desc("tool: Toggle show diagnostics"),
 
 	-- Plugin: trouble
 	--["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
@@ -84,10 +84,10 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Word in project"),
+	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
 	["n|<leader>fo"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
-	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent():with_desc("ui: Change colorscheme for current session"),
-	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
+	--["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent():with_desc("ui: Change colorscheme for current session"),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent():with_desc("find: file in git project"),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent():with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
