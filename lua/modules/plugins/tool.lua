@@ -90,9 +90,14 @@ tool["nvim-telescope/telescope.nvim"] = {
 			config = require("tool.project"),
 		},
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		-- { "nvim-telescope/telescope-frecency.nvim", dependencies = {
-		-- 	{ "kkharji/sqlite.lua" },
-		-- } },
+		{ "nvim-telescope/telescope-frecency.nvim",
+			dependencies = {
+				{ "kkharji/sqlite.lua", config = function ()
+					--nix profile install nixpkgs#sqlite.out
+					vim.g.sqlite_clib_path = vim.fn.expand("$HOME/.nix-profile/lib/libsqlite3.dylib")
+				end},
+			}
+		},
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 	},
