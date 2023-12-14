@@ -18,6 +18,17 @@ editor["max397574/better-escape.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.better-escape"),
 }
+
+editor["kylechui/nvim-surround"] = {
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+}
+
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
 	config = require("editor.bigfile"),

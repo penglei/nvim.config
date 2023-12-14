@@ -82,13 +82,15 @@ local plug_map = {
 	--	:with_desc("edit: Align with delimiter"),
 
 	-- Plugin: hop
-	["n|<leader>w"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
-	["n|<leader>j"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
+	["n|gw"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
+	["n|gl"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	--["n|<leader>k"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	--["n|<leader>c"] = map_cu("HopChar1"):with_noremap():with_desc("jump: Goto one char"),
 	--["n|<leader>cc"] = map_cu("HopChar2"):with_noremap():with_desc("jump: Goto two chars"),
 
-	-- Plugin: treehopper
+	-- Plugin: nvim-treehopper
+	-- o: Operator-pending mode. 先按了操作，进入等待范围选择，比如 y(复制),d(删除),c(修改)
+	--    这是因为vim是先输入要做的操作，再输入范围。
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),
 
 	-- Plugin: tabout
