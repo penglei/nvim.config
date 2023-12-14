@@ -41,7 +41,7 @@ editor["penglei/symbols-outline.nvim"] = {
 	config = require("tool.symbols-outline"),
 }
 
---[[
+--[[ bug: 这个插件可能跟其它插件有冲突，使用这个插件关闭buffer可能导致swap文件没删除。
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
 	event = "BufReadPost",
