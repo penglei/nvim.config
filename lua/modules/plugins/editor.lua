@@ -69,11 +69,19 @@ editor["romainl/vim-cool"] = { -- better search highlighting
 	event = { "CursorMoved", "InsertEnter" },
 }
 
-editor["phaazon/hop.nvim"] = { -- <leader>w|j quick jump
+editor["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
 	lazy = true,
-	branch = "v2",
+	--branch = "v2",
 	event = "BufReadPost",
 	config = require("editor.hop"),
+}
+
+-- 三个字符跳到窗口中任何位置.
+-- 覆盖了's'
+editor["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
+	lazy = true,
+	event = "BufReadPost",
+	config = require("editor.leap"),
 }
 
 --editor["folke/flash.nvim"] = {
