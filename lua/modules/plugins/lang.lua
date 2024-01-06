@@ -1,6 +1,6 @@
-local lang = {}
+local M = {}
 
-lang["ray-x/go.nvim"] = {
+M["ray-x/go.nvim"] = {
 	dependencies = { -- optional packages
 		"ray-x/guihua.lua",
 		"neovim/nvim-lspconfig",
@@ -20,26 +20,30 @@ lang["ray-x/go.nvim"] = {
 -- 	config = require("lang.vim-go"),
 -- }
 
-lang["simrat39/rust-tools.nvim"] = {
+M["simrat39/rust-tools.nvim"] = {
 	lazy = true,
 	ft = "rust",
 	config = require("lang.rust-tools"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
-lang["Saecki/crates.nvim"] = {
+M["Saecki/crates.nvim"] = {
 	lazy = true,
 	event = "BufReadPost Cargo.toml",
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
 
-lang["iamcco/markdown-preview.nvim"] = {
+M["iamcco/markdown-preview.nvim"] = {
 	lazy = true,
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }
-lang["chrisbra/csv.vim"] = {
+M["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
 }
-return lang
+M["edgedb/edgedb-vim"] = {
+	lazy = true,
+	ft = "edgeql"
+}
+return M

@@ -113,4 +113,6 @@ return function()
 	lspconfig.ocamllsp.setup({})
 	lspconfig.nickel_ls.setup({})
 	lspconfig.nil_ls.setup{}
+	lspconfig.denols.setup{}
+	--lspconfig.tsserver.setup{}
 end

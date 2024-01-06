@@ -22,6 +22,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "crates.nvim": { "branch": "main", "commit": "b8ea20fda2e1029fbbb1bae7a9eab35c84037ca0" },
   "csv.vim": { "branch": "master", "commit": "962f88787ec6873eba1c7dbbd81d2723f1ee3c4b" },
+  "edgedb-vim": { "branch": "master", "commit": "7f2516bec3a5ad137347fb703d0b2c88f1478f5b" },
   "fidget.nvim": { "branch": "main", "commit": "7b9c383438a2e490e37d57b07ddeae3ab4f4cf69" },
   "friendly-snippets": { "branch": "main", "commit": "53d3df271d031c405255e99410628c26a8f0d2b0" },
   "fzy-lua-native": { "branch": "master", "commit": "820f745b7c442176bcc243e8f38ef4b985febfaf" },
