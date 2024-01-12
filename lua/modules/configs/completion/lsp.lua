@@ -113,6 +113,6 @@ return function()
 	lspconfig.ocamllsp.setup({})
 	lspconfig.nickel_ls.setup({})
 	lspconfig.nil_ls.setup{}
-	lspconfig.denols.setup{}
-	--lspconfig.tsserver.setup{}
+	lspconfig.denols.setup{cmd = {"deno", "lsp", "--unstable"} }
+	-- lspconfig.tsserver.setup{}
 end
