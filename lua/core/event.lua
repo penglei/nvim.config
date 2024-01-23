@@ -106,6 +106,7 @@ function autocmd.load_autocmds()
 			{ "BufRead,BufNewFile", "*.ncl,*.nkl", "set filetype=nickel" },
 			{ "BufRead,BufNewFile", "*.dhall", "set filetype=dhall" },
 			{ "BufRead,BufNewFile", "*.lalrpop", "set filetype=lalrpop" },
+			{ "BufRead,BufNewFile", "*.bxl,BUCK,TARGETS", "set filetype=bzl" },
 		},
 		wins = {
 			-- Highlight current line only on focused window

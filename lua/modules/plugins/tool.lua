@@ -65,7 +65,7 @@ tool["gelguy/wilder.nvim"] = {
 	dependencies = { "romgrk/fzy-lua-native" },
 }
 
--- custom stack mark
+-- custom jump stack mark
 tool["LeonHeidelbach/trailblazer.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
