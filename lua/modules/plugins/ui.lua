@@ -57,7 +57,6 @@ ui["nvim-lualine/lualine.nvim"] = {
 -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
 ui["zbirenbaum/neodim"] = {
 	lazy = true,
-	commit = "9477da0",
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }

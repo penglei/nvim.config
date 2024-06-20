@@ -35,11 +35,11 @@ editor["LunarVim/bigfile.nvim"] = {
 	cond = require("core.settings").load_big_files_faster,
 }
 
-editor["penglei/symbols-outline.nvim"] = {
-	lazy = true,
-	cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-	config = require("tool.symbols-outline"),
-}
+-- editor["penglei/symbols-outline.nvim"] = {
+-- 	lazy = true,
+-- 	cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+-- 	config = require("tool.symbols-outline"),
+-- }
 
 --[[ bug: 这个插件可能跟其它插件有冲突，使用这个插件关闭buffer可能导致swap文件没删除。
 editor["ojroques/nvim-bufdel"] = {
