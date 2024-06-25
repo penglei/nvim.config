@@ -1,6 +1,5 @@
 local ui = {}
 
-
 ui["goolord/alpha-nvim"] = {
 	lazy = true,
 	event = "BufWinEnter",
@@ -82,14 +81,14 @@ ui["folke/paint.nvim"] = { -- comment highlight
 }
 --]]
 
---Show where your cursor moves when jumping large distances
---  This plugin has a ugly implementation which create some unnecessary windows.
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
-	enabled = false,
-}
+-- --Show where your cursor moves when jumping large distances
+-- --  This plugin has a ugly implementation which create some unnecessary windows.
+-- ui["edluffy/specs.nvim"] = {
+-- 	lazy = true,
+-- 	event = "CursorMoved",
+-- 	config = require("ui.specs"),
+-- 	enabled = false,
+-- }
 
 -- the better quickfix manager (trailblazer show marks in qf)
 ui["kevinhwang91/nvim-bqf"] = {

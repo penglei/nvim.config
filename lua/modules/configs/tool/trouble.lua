@@ -8,7 +8,6 @@ return function()
 		position = "bottom", -- position of the list can be: bottom, top, left, right
 		height = 10, -- height of the trouble list when position is top or bottom
 		width = 50, -- width of the list when position is left or right
-		icons = true, -- use devicons for filenames
 		mode = "document_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
 		fold_open = icons.ui.ArrowOpen, -- icon used for open folds
 		fold_closed = icons.ui.ArrowClosed, -- icon used for closed folds
@@ -19,10 +18,9 @@ return function()
 			-- map to {} to remove a mapping, for example:
 			-- close = {},
 			close = "q", -- close the list
-			cancel = "<ESC>", -- cancel the preview and get back to your last window / buffer / cursor
+			cancel = "<Esc>", -- cancel the preview and get back to your last window / buffer / cursor
 			refresh = "r", -- manually refresh
 			-- jump = { "<CR>", "<TAB>" }, -- jump to the diagnostic or open / close folds
-			jump = { "<CR>" }, -- jump to the diagnostic or open / close folds
 			open_split = { "<C-x>" }, -- open buffer in new split
 			open_vsplit = { "<C-v>" }, -- open buffer in new vsplit
 			open_tab = { "<C-t>" }, -- open buffer in new tab
@@ -52,5 +50,6 @@ return function()
 			other = icons.diagnostics.Question_alt,
 		},
 		use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+
 	})
 end

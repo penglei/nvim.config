@@ -40,10 +40,10 @@ completion["penglei/nvim-cmp"] = {
 }
 
 
-completion["dense-analysis/ale"] = {
-	lazy = true,
-	event = { "BufReadPost",},
-}
+-- completion["dense-analysis/ale"] = {
+-- 	lazy = true,
+-- 	event = { "BufReadPost",},
+-- }
 
 completion["eraserhd/parinfer-rust"] = {
 	dir = vim.fn.expand("$HOME/.config/local-nvim-plugins/parinfer-rust"),

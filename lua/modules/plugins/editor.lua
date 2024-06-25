@@ -1,10 +1,10 @@
 local editor = {}
 
-editor["rmagatti/auto-session"] = {
-	lazy = true,
-	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
-	config = require("editor.auto-session"),
-}
+-- editor["rmagatti/auto-session"] = {
+-- 	lazy = true,
+-- 	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
+-- 	config = require("editor.auto-session"),
+-- }
 
 -- A minimalist Neovim plugin that auto pairs & closes brackets
 editor["m4xshen/autoclose.nvim"] = {
@@ -29,11 +29,11 @@ editor["kylechui/nvim-surround"] = {
     end
 }
 
-editor["LunarVim/bigfile.nvim"] = {
-	lazy = false,
-	config = require("editor.bigfile"),
-	cond = require("core.settings").load_big_files_faster,
-}
+--editor["LunarVim/bigfile.nvim"] = {
+--	lazy = false,
+--	config = require("editor.bigfile"),
+--	cond = require("core.settings").load_big_files_faster,
+--}
 
 -- editor["penglei/symbols-outline.nvim"] = {
 -- 	lazy = true,
@@ -41,12 +41,11 @@ editor["LunarVim/bigfile.nvim"] = {
 -- 	config = require("tool.symbols-outline"),
 -- }
 
---[[ bug: 这个插件可能跟其它插件有冲突，使用这个插件关闭buffer可能导致swap文件没删除。
-editor["ojroques/nvim-bufdel"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
---]]
+-- --bug: 这个插件可能跟其它插件有冲突，使用这个插件关闭buffer可能导致swap文件没删除。
+-- editor["ojroques/nvim-bufdel"] = {
+-- 	lazy = true,
+-- 	event = "BufReadPost",
+-- }
 
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
