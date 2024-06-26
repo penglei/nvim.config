@@ -34,16 +34,27 @@ return function()
 		},
 	})
 	mason_lspconfig.setup({
-		ensure_installed = require("core.settings").lsp_deps,
+		-- Set the language servers that will be installed during bootstrap here
+		-- check the below link for all the supported LSPs:
+		-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
+		ensure_installed =
+		{
+			"bashls",
+			"clangd",
+			"html",
+			"jsonls",
+			"lua_ls",
+			"pylsp",
+		}
 	})
-
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		signs = true,
 		underline = true,
-		virtual_text = require("core.settings").diagnostics_virtual_text,
+
+		-- Set it to false if diagnostics virtual text is annoying.
+		virtual_text = true,
+
 		-- set update_in_insert to false bacause it was enabled by lspsaga
 		update_in_insert = false,
 	})
@@ -62,12 +73,13 @@ return function()
 				},
 			})
 		end,
-		capabilities = capabilities,
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	}
 
 	--A handler to setup all servers defined under `completion/servers/*.lua`
 	--@param lsp_name string
 	local function mason_handler(lsp_name)
+		vim.notify(string.format("init lsp: %s", lsp_name))
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec
@@ -118,32 +130,37 @@ return function()
 	lspconfig.denols.setup {
 		cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" }
 	}
-	lspconfig.pylsp.setup {
-		settings = {
-			pylsp = {
-				plugins = {
-					pycodestyle = {
-						maxLineLength = 200,
-					},
-					flake8 = {
-						maxLineLength = 200,
-					}
-				}
-			}
-		}
-	}
-	lspconfig.lua_ls.setup {
-		settings = {
-			Lua = {
-				format = {
-					enable = true,
-				},
-				runtime = {
-					version = "LuaJIT"
-				}
-			}
-		}
-	}
+	-- lspconfig.pylsp.setup {
+	-- 	settings = {
+	-- 		pylsp = {
+	-- 			plugins = {
+	-- 				pycodestyle = {
+	-- 					maxLineLength = 200,
+	-- 				},
+	-- 				flake8 = {
+	-- 					maxLineLength = 200,
+	-- 				},
+	-- 				black = { enabled = true },
+	-- 				--autopep8 = { enabled = false },
+
+	-- 				-- import sorting
+	-- 				pyls_isort = { enabled = true },
+	-- 			}
+	-- 		}
+	-- 	}
+	-- }
+	-- lspconfig.lua_ls.setup {
+	-- 	settings = {
+	-- 		Lua = {
+	-- 			format = {
+	-- 				enable = true,
+	-- 			},
+	-- 			runtime = {
+	-- 				version = "LuaJIT"
+	-- 			}
+	-- 		}
+	-- 	}
+	-- }
 
 
 	-- lspconfig.tsserver.setup{}

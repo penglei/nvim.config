@@ -67,11 +67,11 @@ ui["zbirenbaum/neodim"] = {
 --}
 
 
--- ui["rcarriga/nvim-notify"] = {
--- 	lazy = true,
--- 	event = "VeryLazy",
--- 	config = require("ui.notify"),
--- }
+ui["rcarriga/nvim-notify"] = {
+	lazy = false,
+	--event = "VeryLazy",
+	config = require("ui.notify"),
+}
 
 --[[
 ui["folke/paint.nvim"] = { -- comment highlight

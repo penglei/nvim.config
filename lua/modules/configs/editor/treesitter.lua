@@ -1,5 +1,4 @@
 return vim.schedule_wrap(function()
-
 	vim.api.nvim_set_option_value("foldmethod", "expr", {})
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
@@ -27,10 +26,12 @@ return vim.schedule_wrap(function()
 			"nix",
 			"scheme",
 			"elvish",
+			"vimdoc",
 		},
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
+				-- vim.notify(string.format("determine whether disable tree-sitter highlight for type: %s", ft))
 				if vim.tbl_contains({ "vim" }, ft) then
 					return true
 				end

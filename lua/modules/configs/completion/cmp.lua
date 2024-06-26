@@ -1,6 +1,5 @@
 return function()
-
-    require("completion.formatting").configure_format_on_save()
+	require("completion.formatting").configure_format_on_save()
 
 	local icons = {
 		kind = require("modules.utils.icons").get("kind"),
@@ -71,12 +70,15 @@ return function()
 		window = {
 			completion = {
 				border = border("Normal"),
-				max_width = 80,
-				max_height = 20,
+				-- max_width = 80,
+				-- max_height = 20,
+				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
 			},
 			documentation = {
 				border = border("CmpDocBorder"),
+				winhighlight = "Normal:CmpDoc",
+
 			},
 		},
 		sorting = {
@@ -171,5 +173,4 @@ return function()
 			},
 		},
 	})
-
 end

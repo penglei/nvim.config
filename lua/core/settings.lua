@@ -8,10 +8,6 @@ settings["format_on_save"] = true
 ---@type boolean
 settings["format_notify"] = true
 
--- Set it to false if diagnostics virtual text is annoying.
----@type boolean
-settings["diagnostics_virtual_text"] = true
-
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 ---@type string[]
 settings["format_disabled_dirs"] = {}
@@ -61,19 +57,6 @@ settings["server_formatting_block_list"] = {
 	--tsserver = true,
 	clangd = true,
 	pylsp = true,
-}
-
--- Set the language servers that will be installed during bootstrap here
--- check the below link for all the supported LSPs:
--- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
----@type string[]
-settings["lsp_deps"] = {
-	"bashls",
-	"clangd",
-	"html",
-	"jsonls",
-	"lua_ls",
-	"pylsp",
 }
 
 return settings

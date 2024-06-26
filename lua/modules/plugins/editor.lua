@@ -20,20 +20,20 @@ editor["max397574/better-escape.nvim"] = {
 }
 
 editor["kylechui/nvim-surround"] = {
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+	version = "*", -- Use for stability; omit to use `main` branch for the latest features
+	event = "VeryLazy",
+	config = function()
+		require("nvim-surround").setup({
+			-- Configuration here, or leave empty to use defaults
+		})
+	end
 }
 
---editor["LunarVim/bigfile.nvim"] = {
---	lazy = false,
---	config = require("editor.bigfile"),
---	cond = require("core.settings").load_big_files_faster,
---}
+editor["LunarVim/bigfile.nvim"] = {
+	lazy = false,
+	config = require("editor.bigfile"),
+	cond = require("core.settings").load_big_files_faster,
+}
 
 -- editor["penglei/symbols-outline.nvim"] = {
 -- 	lazy = true,
@@ -107,12 +107,9 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {
-		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		-- { "nvim-treesitter/nvim-treesitter-context" },
-		{ "mrjones2014/nvim-ts-rainbow" },
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
-		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" },
+		{ "mfussenegger/nvim-treehopper" },
+		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{
 			"windwp/nvim-ts-autotag",
 			config = require("editor.autotag"),
@@ -121,10 +118,17 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),
 		},
-		{ -- Occasionally, after pressing the Tab key, the cursor may move to an unexpected location.
-			"abecodes/tabout.nvim",
-			config = require("editor.tabout"),
+		{
+			"hiphish/rainbow-delimiters.nvim",
+			url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git",
+			config = require("editor.rainbow_delims"),
 		},
+		-- { "nvim-treesitter/nvim-treesitter-context" }, #head line show syntax block context
+		{
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			config = require("editor.ts-context-commentstring"),
+		},
+
 	},
 }
 
