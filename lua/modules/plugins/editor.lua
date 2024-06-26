@@ -120,7 +120,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"hiphish/rainbow-delimiters.nvim",
-			url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git",
+			-- url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git",
 			config = require("editor.rainbow_delims"),
 		},
 		-- { "nvim-treesitter/nvim-treesitter-context" }, #head line show syntax block context
