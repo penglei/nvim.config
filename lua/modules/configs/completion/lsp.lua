@@ -16,15 +16,15 @@ return function()
 
 	-- Set lsps (lsp server binary should be prepared manually instead of installing by mason)
 
-	if vim.fn.executable("dart") == 1 then
-		setup_lsp("dartls", require("completion.servers.dartls"))
-	end
 	lspconfig.gopls.setup(require("completion.servers.gopls"))
 	lspconfig.hls.setup({ filetypes = { "haskell", "lhaskell" } })
 	lspconfig.ocamllsp.setup({})
 	lspconfig.nickel_ls.setup({})
 	lspconfig.nil_ls.setup {}
 	lspconfig.buck2.setup {}
+	if vim.fn.executable("dart") == 1 then
+		setup_lsp("dartls", require("completion.servers.dartls"))
+	end
 	if vim.fn.executable("deno") == 1 then
 		lspconfig.denols.setup { cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" } }
 	end
