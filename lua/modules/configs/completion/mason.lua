@@ -1,7 +1,6 @@
 local M = {}
 
 M.setup = function()
-	local mason_registry = require("mason-registry")
 	local icons = {
 		ui = require("modules.utils.icons").get("ui", true),
 		misc = require("modules.utils.icons").get("misc", true),
@@ -28,11 +27,14 @@ M.setup = function()
 		},
 	})
 
+	-- 这种方式安装这些插件有点奇怪，不知道有什么作用，为什么不直接用mason安装呢?
+	--[[
+	local mason_registry = require("mason-registry")
 	-- Additional plugins for pylsp
 	mason_registry:on(
 		"package:install:success",
 		vim.schedule_wrap(function(pkg)
-			vim.notify("installing pylsp")
+			vim.notify("installing pylsp plugins...")
 			if pkg.name ~= "python-lsp-server" then
 				return
 			end
@@ -86,6 +88,7 @@ M.setup = function()
 				:start()
 		end)
 	)
+	--]]
 end
 
 return M

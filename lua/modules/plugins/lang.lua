@@ -7,6 +7,7 @@ M["ray-x/go.nvim"] = {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
+		--vim.notify("config ray-x/go")
 		require("go").setup()
 	end,
 	event = { "CmdlineEnter" },

@@ -45,6 +45,11 @@ completion["penglei/nvim-cmp"] = {
 	},
 }
 
+completion["stevearc/conform.nvim"] = {
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
+	config = require("completion.conform")
+}
 
 -- completion["dense-analysis/ale"] = {
 -- 	lazy = true,

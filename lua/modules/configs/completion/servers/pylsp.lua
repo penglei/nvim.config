@@ -37,7 +37,7 @@ return {
 				rope = { enabled = true },
 
 				-- Formatting
-				black = { enabled = true },
+				black = { enabled = false }, -- I don't known why it doesn't' work, and I implement this by conform plugin
 				pyls_isort = { enabled = false },
 				autopep8 = { enabled = false },
 				yapf = { enabled = false },

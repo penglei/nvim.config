@@ -1,17 +1,5 @@
 local settings = {}
 
--- Set it to false if there are no need to format on save.
----@type boolean
-settings["format_on_save"] = true
-
--- Set it to false if the notification after formatting is annoying.
----@type boolean
-settings["format_notify"] = true
-
--- Set the format disabled directories here, files under these dirs won't be formatted on save.
----@type string[]
-settings["format_disabled_dirs"] = {}
-
 -- NOTE: The startup time will be slowed down when it's true.
 -- Set it to false if you don't use nvim to open big files.
 ---@type boolean

@@ -37,7 +37,7 @@ M.setup = function()
 	--A handler to setup all servers defined under `completion/servers/*.lua`
 	--@param lsp_name string
 	local function mason_handler(lsp_name)
-		-- vim.notify(string.format("init lsp: %s", lsp_name))
+		-- vim.notify(string.format("init lsp: %s", lsp_name), vim.log.levels.INFO, { title = "mason auto install and initialize lsp" })
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec

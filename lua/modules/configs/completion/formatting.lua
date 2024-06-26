@@ -1,11 +1,17 @@
+-- 这个模块是一个简易的通过lsp的format能力实现的自动format功能。也就是说没有lsp的语言，或者lsp不支持format则无法工作。
+--[[
+https://www.reddit.com/r/neovim/comments/13sdxep/how_to_setup_formatter_for_python/
+
+> There is a fundamental difference between formatters and lsp. Lsp-zero just set's up lsp. Lsp is the language server protocol, so lsp-zero only setus up things you get from your lsp server, in python's case perhaps pyright. So formatting will only work if your language server supports it, hence why it's working for you in c and c++ files. In c and c++, clangd supports formatting, however in python's case and pyright it doesn't.
+
+> It's quite common that the language server you use for completions, go to definition and etc might not support formatting or you prefer a formatter binary. For example black. black is just a simple command line utility, it doesn't implement the lsp protocol or anything so it's fundamentally different from language servers.
+
+> However you can see that it would be quite cool to allow simple binaries like `black` or eslint to hook into the lsp and allow us to run formatting as if they were an lsp server. This is precisely why null-ls exists. Null-ls allows your simple binaries to hook into lsp features all
+--]]
+
 local M = {}
 
---vim.notify("init formatting...")
-
-local settings = require("core.settings")
-local format_notify = settings.format_notify
-local disabled_workspaces = settings.format_disabled_dirs
-local format_on_save = settings.format_on_save
+local disabled_workspaces = {}
 local server_formatting_block_list = { clangd = true }
 
 vim.api.nvim_create_user_command("FormatToggle", function()
@@ -70,11 +76,7 @@ function M.disable_format_on_save(is_configured)
 end
 
 function M.configure_format_on_save()
-	if format_on_save then
-		M.enable_format_on_save(true)
-	else
-		M.disable_format_on_save(true)
-	end
+	M.enable_format_on_save(true)
 end
 
 function M.toggle_format_on_save()
@@ -142,6 +144,7 @@ function M.do_format(opts)
 
 	local timeout_ms = opts.timeout_ms
 	for _, client in pairs(clients) do
+		--[[
 		if block_list[vim.bo.filetype] == true then
 			vim.notify(
 				string.format(
@@ -154,17 +157,17 @@ function M.do_format(opts)
 			)
 			return
 		end
+		--]]
+
 		local params = vim.lsp.util.make_formatting_params(opts.formatting_options)
 		local result, err = client.request_sync("textDocument/formatting", params, timeout_ms, bufnr)
 		if result and result.result then
 			vim.lsp.util.apply_text_edits(result.result, bufnr, client.offset_encoding)
-			if format_notify then
-				vim.notify(
-					string.format("[LSP] Format successfully with %s", client.name),
-					vim.log.levels.INFO,
-					{ title = "LSP Format Success" }
-				)
-			end
+			vim.notify(
+				string.format("[LSP] Format successfully with %s", client.name),
+				vim.log.levels.INFO,
+				{ title = "LSP Format Success" }
+			)
 		elseif err then
 			vim.notify(
 				string.format("[LSP][%s] %s", client.name, err),

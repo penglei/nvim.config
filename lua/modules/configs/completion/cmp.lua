@@ -1,6 +1,4 @@
 return function()
-	require("completion.formatting").configure_format_on_save()
-
 	local icons = {
 		kind = require("modules.utils.icons").get("kind"),
 		type = require("modules.utils.icons").get("type"),
