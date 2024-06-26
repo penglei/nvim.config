@@ -6,13 +6,13 @@ local settings = require("core.settings")
 local format_notify = settings.format_notify
 local disabled_workspaces = settings.format_disabled_dirs
 local format_on_save = settings.format_on_save
-local server_formatting_block_list = settings.server_formatting_block_list
+local server_formatting_block_list = { clangd = true }
 
 vim.api.nvim_create_user_command("FormatToggle", function()
 	M.toggle_format_on_save()
 end, {})
 
-local block_list = require("core.settings").formatter_block_list
+local block_list = {}
 
 vim.api.nvim_create_user_command("FormatterToggleFt", function(opts)
 	if block_list[opts.args] == nil then
@@ -43,7 +43,7 @@ function M.enable_format_on_save(is_configured)
 		group = "format_on_save",
 		pattern = opts.pattern,
 		callback = function()
-			M.format({
+			M.do_format({
 				timeout_ms = opts.timeout,
 				filter = M.format_filter,
 			})
@@ -100,7 +100,7 @@ function M.format_filter(clients)
 	end, clients)
 end
 
-function M.format(opts)
+function M.do_format(opts)
 	local cwd = vim.fn.getcwd()
 	for i = 1, #disabled_workspaces do
 		if cwd.find(cwd, disabled_workspaces[i]) ~= nil then
@@ -160,7 +160,7 @@ function M.format(opts)
 			vim.lsp.util.apply_text_edits(result.result, bufnr, client.offset_encoding)
 			if format_notify then
 				vim.notify(
-					string.format("[LSP] Format successfully with %s!", client.name),
+					string.format("[LSP] Format successfully with %s", client.name),
 					vim.log.levels.INFO,
 					{ title = "LSP Format Success" }
 				)
