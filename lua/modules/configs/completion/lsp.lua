@@ -1,8 +1,6 @@
 return function()
 	local lspconfig = require("lspconfig")
 
-	require("core.command").CreateDiagnosticAutoToggle()
-
 	require("completion.mason").setup()
 	require("completion.mason-lspconfig").setup()
 
