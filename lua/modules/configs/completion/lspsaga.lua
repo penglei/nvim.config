@@ -26,11 +26,7 @@ return function()
 	set_sidebar_icons()
 
 	require("lspsaga").setup({
-		finder = {
-			keys = {
-				edit = "e",
-			}
-		},
+		finder = { keys = { edit = "e", } },
 		-- Breadcrumbs: https://nvimdev.github.io/lspsaga/breadcrumbs/
 		symbol_in_winbar = {
 			enable = true,

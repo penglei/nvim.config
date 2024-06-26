@@ -1,111 +1,15 @@
 return function()
 	local lspconfig = require("lspconfig")
-	local mason = require("mason")
-	local mason_lspconfig = require("mason-lspconfig")
 
 	require("core.command").CreateDiagnosticAutoToggle()
 
-	require("lspconfig.ui.windows").default_options.border = "single"
+	require("completion.mason").setup()
+	require("completion.mason-lspconfig").setup()
 
-	local icons = {
-		ui = require("modules.utils.icons").get("ui", true),
-		misc = require("modules.utils.icons").get("misc", true),
-	}
-
-	mason.setup({
-		PATH = "append",
-		ui = {
-			border = "rounded",
-			icons = {
-				package_pending = icons.ui.Modified_alt,
-				package_installed = icons.ui.Check,
-				package_uninstalled = icons.misc.Ghost,
-			},
-			keymaps = {
-				toggle_server_expand = "<CR>",
-				install_server = "i",
-				update_server = "u",
-				check_server_version = "c",
-				update_all_servers = "U",
-				check_outdated_servers = "C",
-				uninstall_server = "X",
-				cancel_installation = "<C-c>",
-			},
-		},
-	})
-	mason_lspconfig.setup({
-		-- Set the language servers that will be installed during bootstrap here
-		-- check the below link for all the supported LSPs:
-		-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
-		ensure_installed =
-		{
-			"bashls",
-			"clangd",
-			"html",
-			"jsonls",
-			"lua_ls",
-			"pylsp",
-		}
-	})
-
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		signs = true,
-		underline = true,
-
-		-- Set it to false if diagnostics virtual text is annoying.
-		virtual_text = true,
-
-		-- set update_in_insert to false bacause it was enabled by lspsaga
-		update_in_insert = false,
-	})
 
 	local opts = {
-		on_attach = function()
-			require("lsp_signature").on_attach({
-				bind = true,
-				use_lspsaga = false,
-				floating_window = true,
-				fix_pos = true,
-				hint_enable = true,
-				hi_parameter = "Search",
-				handler_opts = {
-					border = "rounded",
-				},
-			})
-		end,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	}
-
-	--A handler to setup all servers defined under `completion/servers/*.lua`
-	--@param lsp_name string
-	local function mason_handler(lsp_name)
-		-- vim.notify(string.format("init lsp: %s", lsp_name))
-		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
-		if not ok then
-			-- Default to use factory config for server(s) that doesn't include a spec
-			lspconfig[lsp_name].setup(opts)
-			return
-		elseif type(custom_handler) == "function" then
-			--- Case where language server requires its own setup
-			--- Make sure to call require("lspconfig")[lsp_name].setup() in the function
-			--- See `clangd.lua` for example.
-			custom_handler(opts)
-		elseif type(custom_handler) == "table" then
-			lspconfig[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
-		else
-			vim.notify(
-				string.format(
-					"Failed to setup [%s].\n\nServer definition under `completion/servers` must return\neither a fun(opts) or a table (got '%s' instead)",
-					lsp_name,
-					type(custom_handler)
-				),
-				vim.log.levels.ERROR,
-				{ title = "nvim-lspconfig" }
-			)
-		end
-	end
-
-	mason_lspconfig.setup_handlers({ mason_handler })
 
 	-- Set lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
 	if vim.fn.executable("dart") == 1 then
@@ -114,54 +18,13 @@ return function()
 		lspconfig.dartls.setup(final_opts)
 	end
 
-	lspconfig.hls.setup({
-		filetypes = { "haskell", "lhaskell" },
-		-- haskell = { -- haskell-language-server options
-		-- 	formattingProvider = "ormolu",
-		-- 	cabalFormattingProvider = "cabal-fmt",
-		-- 	-- Setting this to true could have a performance impact on large mono repos.
-		-- 	checkProject = true,
-		-- },
-	})
+	lspconfig.hls.setup({ filetypes = { "haskell", "lhaskell" } })
 	lspconfig.ocamllsp.setup({})
 	lspconfig.nickel_ls.setup({})
 	lspconfig.nil_ls.setup {}
 	lspconfig.buck2.setup {}
-	lspconfig.denols.setup {
-		cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" }
-	}
-	-- lspconfig.pylsp.setup {
-	-- 	settings = {
-	-- 		pylsp = {
-	-- 			plugins = {
-	-- 				pycodestyle = {
-	-- 					maxLineLength = 200,
-	-- 				},
-	-- 				flake8 = {
-	-- 					maxLineLength = 200,
-	-- 				},
-	-- 				black = { enabled = true },
-	-- 				--autopep8 = { enabled = false },
-
-	-- 				-- import sorting
-	-- 				pyls_isort = { enabled = true },
-	-- 			}
-	-- 		}
-	-- 	}
-	-- }
-	-- lspconfig.lua_ls.setup {
-	-- 	settings = {
-	-- 		Lua = {
-	-- 			format = {
-	-- 				enable = true,
-	-- 			},
-	-- 			runtime = {
-	-- 				version = "LuaJIT"
-	-- 			}
-	-- 		}
-	-- 	}
-	-- }
-
-
+	lspconfig.denols.setup { cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" } }
 	-- lspconfig.tsserver.setup{}
+
+	vim.api.nvim_command([[LspStart]]) -- Start LSPs
 end
