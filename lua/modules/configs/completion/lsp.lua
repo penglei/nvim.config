@@ -65,8 +65,8 @@ return function()
 		capabilities = capabilities,
 	}
 
-	---A handler to setup all servers defined under `completion/servers/*.lua`
-	---@param lsp_name string
+	--A handler to setup all servers defined under `completion/servers/*.lua`
+	--@param lsp_name string
 	local function mason_handler(lsp_name)
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
@@ -101,6 +101,7 @@ return function()
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 		lspconfig.dartls.setup(final_opts)
 	end
+
 	lspconfig.hls.setup({
 		filetypes = { "haskell", "lhaskell" },
 		-- haskell = { -- haskell-language-server options
@@ -112,9 +113,38 @@ return function()
 	})
 	lspconfig.ocamllsp.setup({})
 	lspconfig.nickel_ls.setup({})
-	lspconfig.nil_ls.setup{}
-	lspconfig.buck2.setup{}
-	lspconfig.denols.setup{cmd = {"deno", "lsp", "--unstable-kv", "--unstable-cron"} }
+	lspconfig.nil_ls.setup {}
+	lspconfig.buck2.setup {}
+	lspconfig.denols.setup {
+		cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" }
+	}
+	lspconfig.pylsp.setup {
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						maxLineLength = 200,
+					},
+					flake8 = {
+						maxLineLength = 200,
+					}
+				}
+			}
+		}
+	}
+	lspconfig.lua_ls.setup {
+		settings = {
+			Lua = {
+				format = {
+					enable = true,
+				},
+				runtime = {
+					version = "LuaJIT"
+				}
+			}
+		}
+	}
+
 
 	-- lspconfig.tsserver.setup{}
 end
