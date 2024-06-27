@@ -16,6 +16,7 @@ local config = {
 
           [lazy_lib_path .. "/cmp-nvim-lsp"] = true,
           [lazy_lib_path .. "/conform.nvim"] = true,
+          [lazy_lib_path .. "/nvim-lint"] = true,
           [lazy_lib_path .. "/go.nvim"] = true,
           [lazy_lib_path .. "/nvim-lspconfig"] = true,
           [lazy_lib_path .. "/mason.nvim"] = true,

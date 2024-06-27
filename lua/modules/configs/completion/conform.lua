@@ -66,12 +66,10 @@ local function setup_conform()
       },
       goimports = {
         append_args = {
-          "-local",
           -- 这些常用的顶层module不会被别的module引用，一定是local。
           -- 遗留问题是如何处理公共包(如khaos/pkg)? 只有按照project/lsp root来定义才行。
-          "git.woa.com/khaos/platform",
-          "git.woa.com/khaos/apiserver",
-          "git.woa.com/khaos/scheduler",
+          "-local",
+          "git.woa.com/khaos/platform,git.woa.com/khaos/apiserver,git.woa.com/khaos/scheduler",
         },
       },
     },
