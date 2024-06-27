@@ -21,6 +21,8 @@ return function()
   lspconfig.nickel_ls.setup({})
   lspconfig.nil_ls.setup({})
   lspconfig.buck2.setup({})
+  lspconfig.pbls.setup({}) -- need and pbls and protoc binaries
+
   lspconfig.yamlls.setup({
     settings = {
       yaml = {
@@ -39,5 +41,5 @@ return function()
   end
   -- lspconfig.tsserver.setup{}
 
-  vim.api.nvim_command([[LspStart]]) -- Start LSPs
+  vim.api.nvim_command("LspStart") -- Start LSPs
 end

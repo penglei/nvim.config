@@ -61,6 +61,7 @@ local function setup_conform()
       python = { "isort", "black" },
       javascript = { "prettierd", "prettier" },
       go = { "goimports", "gofmt" },
+      proto = { "bufprotofmt" },
     },
     formatters = {
       shfmt = {
@@ -74,6 +75,26 @@ local function setup_conform()
           "git.woa.com/khaos/platform,git.woa.com/khaos/apiserver,git.woa.com/khaos/scheduler",
         },
       },
+      bufprotofmt = {
+        command = "buf",
+        args = { "format", "$FILENAME" },
+      },
+      -- yamlfmt = { prepend_args = { "-conf", ".yamlfmt.yaml" } },
+      yamlfmt = function(bufnr)
+        local config_file = vim.fs.find({ ".yamlfmt.yaml", ".yamlfmt", ".yamlfmt.yml" }, { upward = true })[1]
+        local args
+        if config_file then
+          args = { "-conf", config_file, "-" }
+        else
+          args = { "-" }
+        end
+        -- vim.notify(args)
+        return {
+          --command = require("conform.util").find_executable({ "~/.local/bin/yamlfmt" }, "yamlfmt"),
+          command = "yamlfmt",
+          args,
+        }
+      end,
     },
   })
 end
