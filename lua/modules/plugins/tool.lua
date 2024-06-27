@@ -23,6 +23,7 @@ tool["nvim-tree/nvim-tree.lua"] = {
     "NvimTreeFindFileToggle",
     "NvimTreeRefresh",
   },
+  event = { "VeryLazy" },
   config = require("tool.nvim-tree"),
 }
 
