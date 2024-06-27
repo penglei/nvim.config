@@ -1,5 +1,5 @@
 return function()
-	local blend_color = require("modules.utils").gen_neodim_blend()
+	local blend_color = require("modules.utils").gen_neodim_blend_attr()
 
 	require("neodim").setup({
 		alpha = 0.45,
@@ -11,6 +11,27 @@ return function()
 			underline = false,
 		},
 		priority = 80,
-		disable = { "big_file_disabled_ft" },
+		disable = {
+			"alpha",
+			"bigfile",
+			"checkhealth",
+			"dap-repl",
+			"diff",
+			"fugitive",
+			"fugitiveblame",
+			"git",
+			"gitcommit",
+			"help",
+			"log",
+			"notify",
+			"NvimTree",
+			"Outline",
+			"qf",
+			"TelescopePrompt",
+			"text",
+			"toggleterm",
+			"undotree",
+			"vimwiki",
+		},
 	})
 end

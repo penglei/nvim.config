@@ -50,12 +50,14 @@ local function setup_conform()
 
 			return { timeout_ms = 500, lsp_format = "fallback" }
 		end,
-
+		log_level = vim.log.levels.DEBUG,
+		lsp_format = "prefer",
 		-- Define your formatters
 		formatters_by_ft = {
+			nix = { "nixfmt" },
 			lua = { "stylua" },
 			python = { "isort", "black" },
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettierd", "prettier" },
 		},
 		formatters = {
 			shfmt = {

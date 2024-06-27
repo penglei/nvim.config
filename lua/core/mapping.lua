@@ -8,8 +8,8 @@ local core_map = {
 	--["n|<Tab>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent():with_desc("goto next buffer"),
 	--["n|<S-Tab>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent():with_desc("goto prev buffer"),
 
-	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
-	["n|<C-S-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
+	-- ["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
+	["n|<C-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
 		:with_silent()
 		:with_noremap()
 		:with_desc("editn: Save file using sudo"),

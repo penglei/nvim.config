@@ -72,7 +72,6 @@ leader_map()
 -- clipboard_config()
 
 require("core.options")
-require("core.command")
 require("core.mapping")
 require("keymap")
 require("core.event")
@@ -82,4 +81,3 @@ local colorscheme = require("core.settings").colorscheme
 local background = require("core.settings").background
 vim.api.nvim_command("set background=" .. background)
 vim.api.nvim_command("colorscheme " .. colorscheme)
-

@@ -4,8 +4,6 @@ return function()
 		dap = require("modules.utils.icons").get("dap"),
 	}
 
-	require("core.command").CreateDapUIToggle()
-
 	-- vim.api.nvim_create_user_command("DapUIToggle", function()
 	-- 	require("dapui").toggle()
 	-- end, {})
@@ -29,8 +27,8 @@ return function()
 						size = 0.25, -- Can be float or integer > 1
 					},
 					{ id = "breakpoints", size = 0.25 },
-					{ id = "stacks", size = 0.25 },
-					{ id = "watches", size = 0.25 },
+					{ id = "stacks",      size = 0.25 },
+					{ id = "watches",     size = 0.25 },
 				},
 				size = 40,
 				position = "left",
