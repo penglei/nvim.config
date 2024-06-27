@@ -29,9 +29,9 @@ return function()
       vim.keymap.del("n", "<C-e>", { buffer = bufnr })
     end,
     view = {
-      adaptive_size = false,
+      adaptive_size = true,
       centralize_selection = false,
-      width = 30,
+      width = 40,
       side = "left",
       preserve_window_proportions = false,
       number = false,

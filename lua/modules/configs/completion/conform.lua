@@ -54,6 +54,8 @@ local function setup_conform()
     lsp_format = "prefer",
     -- Define your formatters
     formatters_by_ft = {
+      yaml = { "yamlfmt" },
+      json = { "jq" },
       nix = { "nixfmt" },
       lua = { "stylua" },
       python = { "isort", "black" },
