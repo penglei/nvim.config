@@ -73,6 +73,7 @@ tool["LeonHeidelbach/trailblazer.nvim"] = {
   config = require("tool.trailblazer"),
 }
 
+--[[
 tool["ThePrimeagen/harpoon"] = {
   lazy = true,
   event = "VeryLazy",
@@ -121,6 +122,8 @@ tool["ThePrimeagen/harpoon"] = {
     -- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
   end,
 }
+--]]
+
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
@@ -133,11 +136,11 @@ tool["nvim-telescope/telescope.nvim"] = {
     { "nvim-tree/nvim-web-devicons" },
     { "nvim-lua/plenary.nvim" },
     { "debugloop/telescope-undo.nvim" },
-    {
-      "ahmedkhalf/project.nvim",
-      event = "BufReadPost",
-      config = require("tool.project"),
-    },
+    -- {
+    --   "ahmedkhalf/project.nvim",
+    --   event = "BufReadPost",
+    --   config = require("tool.project"),
+    -- },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     {
       "nvim-telescope/telescope-frecency.nvim",

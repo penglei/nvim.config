@@ -37,12 +37,20 @@ M["iamcco/markdown-preview.nvim"] = {
   ft = "markdown",
   build = ":call mkdp#util#install()",
 }
+
 M["chrisbra/csv.vim"] = {
   lazy = true,
   ft = "csv",
 }
+
 M["edgedb/edgedb-vim"] = {
   lazy = true,
   ft = "edgeql",
 }
+
+M["sdiehl/vim-cabalfmt"] = {
+  lazy = true,
+  event = "BufReadPost",
+}
+
 return M

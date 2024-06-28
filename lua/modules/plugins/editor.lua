@@ -87,17 +87,6 @@ editor["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
   config = require("editor.leap"),
 }
 
---editor["folke/flash.nvim"] = {
---	lazy = true,
---	event = { "CursorHold", "CursorHoldI" },
---	config = require("editor.flash"),
---}
-
-editor["sdiehl/vim-cabalfmt"] = {
-  lazy = true,
-  event = "BufReadPost",
-}
-
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
