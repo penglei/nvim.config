@@ -33,6 +33,7 @@ end
 return {
   -- capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, options.capabilities),
   capabilities = { offsetEncoding = { "utf-16", "utf-8" } },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
   single_file_support = true,
   cmd = {
     "clangd",
