@@ -62,6 +62,7 @@ local function setup_conform()
       javascript = { "prettierd", "prettier" },
       go = { "goimports", "gofmt" },
       proto = { "bufprotofmt" },
+      bzl = { "buildifier" },
     },
     formatters = {
       shfmt = {

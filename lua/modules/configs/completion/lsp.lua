@@ -37,32 +37,20 @@ return function()
     lspconfig[lsp_name].setup(final_opts)
   end
 
-  -- lspconfig.lua_ls.setup(servercfg("lua_ls"))
   setup_lsp("lua_ls")
-  -- lspconfig.clangd.setup(servercfg("clangd"))
   setup_lsp("clangd")
-  -- lspconfig.bashls.setup({ cmd = { "bash-language-server", "start" }, filetypes = { "bash", "sh" } })
   setup_lsp("bashls", { cmd = { "bash-language-server", "start" }, filetypes = { "bash", "sh" } })
-  -- lspconfig.pylsp.setup(servercfg("pylsp"))
   setup_lsp("pylsp")
-  -- lspconfig.gopls.setup(servercfg("gopls"))
   setup_lsp("gopls")
-  -- lspconfig.html.setup(servercfg("html"))
   setup_lsp("html")
-  -- lspconfig.hls.setup({ filetypes = { "haskell", "lhaskell" } })
   setup_lsp("hls", { filetypes = { "haskell", "lhaskell" } })
-  -- lspconfig.ocamllsp.setup({})
   setup_lsp("ocamllsp")
-  -- lspconfig.nickel_ls.setup({})
   setup_lsp("nickel_ls")
-  -- lspconfig.nil_ls.setup({})
   setup_lsp("nil_ls")
-  -- lspconfig.buck2.setup({})
   setup_lsp("buck2")
-  -- lspconfig.pbls.setup({}) -- need and pbls and protoc binaries
   setup_lsp("pbls")
+  -- setup_lsp("starlark_rust")
 
-  -- lspconfig.jsonls.setup(servercfg("jsonls"))
   setup_lsp("jsonls")
   setup_lsp("yamlls", {
     settings = {
@@ -78,7 +66,6 @@ return function()
     setup_lsp("dartls")
   end
   if vim.fn.executable("deno") == 1 then
-    -- lspconfig.denols.setup({ cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" } })
     setup_lsp("denols", { cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" } })
   end
   -- lspconfig.tsserver.setup{}
