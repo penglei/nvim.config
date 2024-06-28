@@ -72,7 +72,7 @@ return function()
       lsp_saga = true,
       lsp_trouble = true,
       markdown = true,
-      mason = true,
+      mason = false,
       mini = false,
       navic = { enabled = false },
       neogit = false,

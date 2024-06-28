@@ -19,8 +19,6 @@ local config = {
           [lazy_lib_path .. "/nvim-lint"] = true,
           [lazy_lib_path .. "/go.nvim"] = true,
           [lazy_lib_path .. "/nvim-lspconfig"] = true,
-          [lazy_lib_path .. "/mason.nvim"] = true,
-          [lazy_lib_path .. "/mason-lspconfig.nvim"] = true,
           [lazy_lib_path .. "/harpoon"] = true,
         },
         maxPreload = 100000,

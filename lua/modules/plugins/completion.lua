@@ -5,8 +5,6 @@ completion["neovim/nvim-lspconfig"] = {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("completion.lsp"),
   dependencies = {
-    { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
     {
       "Jint-lzxy/lsp_signature.nvim",
       config = require("completion.lsp-signature"),
