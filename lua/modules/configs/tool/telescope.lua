@@ -28,7 +28,7 @@ return function()
       },
       path_display = { "absolute" },
       file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
-      file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+      file_previewer = false, --require("telescope.previewers").vim_buffer_cat.new,
       grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
       qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
       file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -81,8 +81,8 @@ return function()
   require("telescope").load_extension("frecency")
   require("telescope").load_extension("fzf")
   require("telescope").load_extension("live_grep_args")
-  -- require("telescope").load_extension("projects") -- always keep project root as pwd
-  -- require("telescope").load_extension("notify")
+  require("telescope").load_extension("projects") -- always keep project root as pwd
+  require("telescope").load_extension("notify")
   require("telescope").load_extension("undo")
   require("telescope").load_extension("zoxide")
 end

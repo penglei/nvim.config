@@ -15,6 +15,7 @@ local config = {
           [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 
           [lazy_lib_path .. "/cmp-nvim-lsp"] = true,
+          [lazy_lib_path .. "/telescope.nvim"] = true,
           [lazy_lib_path .. "/conform.nvim"] = true,
           [lazy_lib_path .. "/nvim-lint"] = true,
           [lazy_lib_path .. "/go.nvim"] = true,

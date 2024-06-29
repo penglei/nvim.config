@@ -23,7 +23,7 @@ return function()
     open_on_tab = false,
     respect_buf_cwd = false,
     sort_by = "name",
-    sync_root_with_cwd = true,
+    sync_root_with_cwd = false,
     on_attach = function(bufnr)
       require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
       vim.keymap.del("n", "<C-e>", { buffer = bufnr })
@@ -62,7 +62,7 @@ return function()
         icons = {
           corner = "└ ",
           edge = "│ ",
-          item = "│ ",
+          item = "├ ",
           none = "  ",
         },
       },
@@ -112,7 +112,8 @@ return function()
     },
     update_focused_file = {
       enable = true,
-      update_root = true,
+      -- Update the root directory of the tree if the file is not under current root directory.
+      update_root = false,
       ignore_list = {},
     },
     filters = {
@@ -123,8 +124,9 @@ return function()
     actions = {
       use_system_clipboard = true,
       change_dir = {
-        enable = true,
-        global = false,
+        enable = false, -- whether change editor cwd while open file
+        global = true, -- only for local buffer or golobal
+        restrict_above_cwd = true,
       },
       open_file = {
         quit_on_open = false,

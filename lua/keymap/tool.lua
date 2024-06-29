@@ -25,7 +25,7 @@ local plug_map = {
   -- Plugin: toggleterm
 
   ["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(),
-  ["n|<leader>b"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
+  -- ["n|<leader>b"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
   -- ["i|<leader>b"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
   -- 	:with_noremap()
   -- 	:with_silent()
@@ -84,12 +84,13 @@ local plug_map = {
     :with_silent()
     :with_desc("find: Word in project"),
   ["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
-  ["n|<leader>fo"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-  ["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+  -- ["n|<leader>fo"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
+  ["n|<leader>ff"] = map_cu("Telescope find_files previewer=false"):with_noremap():with_silent():with_desc("find: File in project"),
   --["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent():with_desc("ui: Change colorscheme for current session"),
-  ["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent():with_desc("find: file in git project"),
-  ["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent():with_desc("edit: Change current direrctory by zoxide"),
-  ["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
+  -- ["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent():with_desc("find: file in git project"),
+  -- ["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent():with_desc("edit: Change current direrctory by zoxide"),
+  ["n|<leader>fb"] = map_cu("Telescope buffers previewer=false"):with_noremap():with_silent():with_desc("find: Buffer opened"),
+  ["n|<leader>fj"] = map_cu("Telescope jumplist previewer=false"):with_noremap():with_silent():with_desc("show jumplist"),
   ["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 
   --[[

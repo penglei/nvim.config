@@ -76,16 +76,20 @@ editor["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
   lazy = true,
   --branch = "v2",
   event = "BufReadPost",
-  config = require("editor.hop"),
+  config = function()
+    require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+  end,
 }
 
 -- 三个字符跳到窗口中任何位置.
 -- 覆盖了's'
-editor["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
-  lazy = true,
-  event = "BufReadPost",
-  config = require("editor.leap"),
-}
+-- editor["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
+--   lazy = true,
+--   event = "BufReadPost",
+--   config = function ()
+--   	require("leap").add_default_mappings()
+--   end,
+-- }
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --

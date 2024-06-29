@@ -124,6 +124,12 @@ tool["ThePrimeagen/harpoon"] = {
 }
 --]]
 
+tool["ahmedkhalf/project.nvim"] = {
+  lazy = true,
+  ft = { "alpha" },
+  event = "BufReadPost",
+  config = require("tool.project"),
+}
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
@@ -136,12 +142,8 @@ tool["nvim-telescope/telescope.nvim"] = {
     { "nvim-tree/nvim-web-devicons" },
     { "nvim-lua/plenary.nvim" },
     { "debugloop/telescope-undo.nvim" },
-    -- {
-    --   "ahmedkhalf/project.nvim",
-    --   event = "BufReadPost",
-    --   config = require("tool.project"),
-    -- },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "ahmedkhalf/project.nvim" },
     {
       "nvim-telescope/telescope-frecency.nvim",
       dependencies = {
