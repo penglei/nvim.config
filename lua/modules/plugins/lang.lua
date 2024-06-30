@@ -34,7 +34,11 @@ M["Saecki/crates.nvim"] = {
 
 M["iamcco/markdown-preview.nvim"] = {
   lazy = true,
-  ft = "markdown",
+  ft = { "markdown" },
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+    vim.g.mkdp_browser = "Safari"
+  end,
   build = ":call mkdp#util#install()",
 }
 

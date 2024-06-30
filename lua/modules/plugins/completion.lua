@@ -1,25 +1,25 @@
-local completion = {}
+local M = {}
 
-completion["neovim/nvim-lspconfig"] = {
+M["neovim/nvim-lspconfig"] = {
   lazy = true,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("completion.lsp"),
-  dependencies = {
-    {
-      "Jint-lzxy/lsp_signature.nvim",
-      config = require("completion.lsp-signature"),
-    },
-  },
 }
 
-completion["nvimdev/lspsaga.nvim"] = {
+M["Jint-lzxy/lsp_signature.nvim"] = {
+  lazy = true,
+  event = "VeryLazy",
+  config = require("completion.lsp-signature"),
+}
+
+M["nvimdev/lspsaga.nvim"] = {
   lazy = true,
   event = "LspAttach",
   config = require("completion.lspsaga"),
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 
-completion["penglei/nvim-cmp"] = {
+M["penglei/nvim-cmp"] = {
   lazy = true,
   event = "InsertEnter",
   config = require("completion.cmp"),
@@ -29,12 +29,12 @@ completion["penglei/nvim-cmp"] = {
       dependencies = { "rafamadriz/friendly-snippets" },
       config = require("completion.luasnip"),
     },
-    { "onsails/lspkind.nvim" },
+    { "rafamadriz/friendly-snippets" },
     { "lukas-reineke/cmp-under-comparator" },
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-    { "andersevenrud/cmp-tmux" },
+    -- { "andersevenrud/cmp-tmux" },
     { "hrsh7th/cmp-path" },
     { "f3fora/cmp-spell" },
     { "hrsh7th/cmp-buffer" },
@@ -43,7 +43,7 @@ completion["penglei/nvim-cmp"] = {
   },
 }
 
-completion["stevearc/conform.nvim"] = {
+M["stevearc/conform.nvim"] = {
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   config = require("completion.conform"),
@@ -54,7 +54,7 @@ completion["stevearc/conform.nvim"] = {
 -- 	event = { "BufReadPost",},
 -- }
 
-completion["mfussenegger/nvim-lint"] = {
+M["mfussenegger/nvim-lint"] = {
   lazy = true,
   event = "VeryLazy",
   config = function()
@@ -65,11 +65,11 @@ completion["mfussenegger/nvim-lint"] = {
   end,
 }
 
-completion["eraserhd/parinfer-rust"] = {
+M["eraserhd/parinfer-rust"] = {
   dir = vim.fn.expand("$HOME/.config/local-nvim-plugins/parinfer-rust"),
   config = function()
     vim.g.parinfer_dylib_path = vim.fn.expand("$HOME/.nix-profile/lib/libparinfer_rust.dylib")
   end,
 }
 
-return completion
+return M

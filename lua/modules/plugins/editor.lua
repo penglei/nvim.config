@@ -1,4 +1,4 @@
-local editor = {}
+local M = {}
 
 -- editor["rmagatti/auto-session"] = {
 -- 	lazy = true,
@@ -7,19 +7,20 @@ local editor = {}
 -- }
 
 -- A minimalist Neovim plugin that auto pairs & closes brackets
-editor["m4xshen/autoclose.nvim"] = {
+M["m4xshen/autoclose.nvim"] = {
   lazy = true,
   event = "InsertEnter",
   config = require("editor.autoclose"),
 }
 
-editor["max397574/better-escape.nvim"] = {
+--jj/jk as esc
+M["max397574/better-escape.nvim"] = {
   lazy = true,
   event = { "CursorHold", "CursorHoldI" },
   config = require("editor.better-escape"),
 }
 
-editor["kylechui/nvim-surround"] = {
+M["kylechui/nvim-surround"] = {
   version = "*", -- Use for stability; omit to use `main` branch for the latest features
   event = "VeryLazy",
   config = function()
@@ -29,12 +30,19 @@ editor["kylechui/nvim-surround"] = {
   end,
 }
 
-editor["LunarVim/bigfile.nvim"] = {
+M["ibhagwan/smartyank.nvim"] = {
+  lazy = true,
+  event = "BufReadPost",
+  config = require("tool.smartyank"),
+}
+
+M["LunarVim/bigfile.nvim"] = {
   lazy = false,
   config = require("editor.bigfile"),
   cond = require("core.settings").load_big_files_faster,
 }
 
+-- symbols outline has provided by lspsaga
 -- editor["penglei/symbols-outline.nvim"] = {
 -- 	lazy = true,
 -- 	cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
@@ -46,33 +54,33 @@ editor["LunarVim/bigfile.nvim"] = {
 -- 	lazy = true,
 -- 	event = "BufReadPost",
 -- }
-editor["famiu/bufdelete.nvim"] = {
+M["famiu/bufdelete.nvim"] = {
   lazy = true,
   event = "VeryLazy",
 }
 
-editor["rhysd/clever-f.vim"] = {
+M["rhysd/clever-f.vim"] = {
   lazy = true,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("editor.cleverf"),
 }
-editor["numToStr/Comment.nvim"] = {
+M["numToStr/Comment.nvim"] = {
   lazy = true,
   event = { "CursorHold", "CursorHoldI" },
   config = require("editor.comment"),
 }
 
-editor["RRethy/vim-illuminate"] = { -- highlighting other word under cursor
+M["RRethy/vim-illuminate"] = { -- highlighting other word under cursor
   lazy = true,
   event = { "CursorHold", "CursorHoldI" },
   config = require("editor.vim-illuminate"),
 }
-editor["romainl/vim-cool"] = { -- better search highlighting
+M["romainl/vim-cool"] = { -- better search highlighting
   lazy = true,
   event = { "CursorMoved", "InsertEnter" },
 }
 
-editor["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
+M["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
   lazy = true,
   --branch = "v2",
   event = "BufReadPost",
@@ -94,7 +102,7 @@ editor["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
-editor["nvim-treesitter/nvim-treesitter"] = {
+M["nvim-treesitter/nvim-treesitter"] = {
   build = function()
     if #vim.api.nvim_list_uis() ~= 0 then
       vim.api.nvim_command("TSUpdate")
@@ -128,4 +136,4 @@ editor["nvim-treesitter/nvim-treesitter"] = {
   },
 }
 
-return editor
+return M
