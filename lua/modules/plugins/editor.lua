@@ -64,6 +64,7 @@ M["rhysd/clever-f.vim"] = {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("editor.cleverf"),
 }
+
 M["numToStr/Comment.nvim"] = {
   lazy = true,
   event = { "CursorHold", "CursorHoldI" },

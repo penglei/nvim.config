@@ -1,6 +1,5 @@
 local bind = require("keymap.bind")
 local map_cr = bind.map_cr
-local map_cu = bind.map_cu
 local map_cmd = bind.map_cmd
 
 vim.cmd([[
@@ -8,13 +7,12 @@ vim.cmd([[
 :nnoremap { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 ]])
 
-local core_map = {
+bind.nvim_load_mapping({
 
   -- ["n|}"] = map_cmd(":<C-u>execute \"keepjumps norm! " . v:count1 . "}"<CR>"),
 
-  -- Suckless
-  --["n|<Tab>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent():with_desc("goto next buffer"),
-  --["n|<S-Tab>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent():with_desc("goto prev buffer"),
+  ["n|<Tab>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent():with_desc("goto next buffer"),
+  ["n|<S-Tab>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent():with_desc("goto prev buffer"),
 
   -- ["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
   ["n|<C-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"):with_silent():with_noremap():with_desc("editn: Save file using sudo"),
@@ -53,6 +51,6 @@ local core_map = {
   ["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
   ["v|<"] = map_cmd("<gv"):with_desc("editv: Decrease indent"),
   ["v|>"] = map_cmd(">gv"):with_desc("editv: Increase indent"),
-}
+})
 
-bind.nvim_load_mapping(core_map)
+require("keymap")

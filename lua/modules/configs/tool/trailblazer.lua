@@ -21,8 +21,8 @@ return function()
           peek_move_next_down = "[n",
           peek_move_previous_up = "[N",
           move_to_nearest = "[l",
-          move_to_trail_mark_cursor = "<leader>mgc",
-          toggle_trail_mark_list = "<leader>tm",
+          -- move_to_trail_mark_cursor = "gc",
+          toggle_trail_mark_list = "gm",
         },
         actions = {
           delete_all_trail_marks = "<leader>md",
