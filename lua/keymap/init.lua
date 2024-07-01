@@ -81,6 +81,14 @@ M.basic = {
   -- Plugin: hop
   ["n|gw"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
   ["n|gl"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
+  ["n|gs"] = map_callback(function()
+    require("hop").hint_char2()
+  end):with_desc("jump in all windows"),
+  ["n|s"] = map_callback(function()
+    require("leap").leap({
+      target_windows = require("leap.user").get_focusable_windows(),
+    })
+  end):with_desc("leap jump in all windows"),
 
   -- Plugin: nvim-treehopper
   -- o: Operator-pending mode. 先按了操作，进入等待范围选择，比如 y(复制),d(删除),c(修改)

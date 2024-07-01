@@ -25,9 +25,37 @@ return function()
     sort_by = "name",
     sync_root_with_cwd = false,
     on_attach = function(bufnr)
-      require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
-      vim.keymap.del("n", "<C-e>", { buffer = bufnr })
+      -- require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
+      local api = require("nvim-tree.api")
+      local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      -- default mappings
+      -- api.config.mappings.default_on_attach(bufnr)
+
+      --custom mappings
+      vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+      vim.keymap.set("n", "q", api.tree.close, opts("Close"))
+      vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
+      vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Close Directory"))
+      vim.keymap.set("n", "a", api.fs.create, opts("Create File Or Directory"))
+      vim.keymap.set("n", "x", api.fs.cut, opts("Cut"))
+      vim.keymap.set("n", "c", api.fs.copy.node, opts("Copy"))
+      vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
+      vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
+
+      vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy Fileame"))
+      vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
+      vim.keymap.set("n", "gy", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
+
+      vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Filter: Dotfiles"))
+      vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Filter: Git Ignore"))
+      vim.keymap.set("n", "W", api.tree.collapse_all, opts("Collapse"))
+      vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
+      vim.keymap.set("n", "<leader>e", "<C-w><C-p>", opts("Back to window")) -- maybe we should do more carefully by record last window by `winnr("#")`
     end,
+
     view = {
       adaptive_size = true,
       centralize_selection = false,
