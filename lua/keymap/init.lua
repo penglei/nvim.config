@@ -153,6 +153,7 @@ local keymaps = {
   ["n|<leader>b"] = map_cu("Telescope buffers previewer=false"):with_noremap():with_silent():with_desc("find: Buffer opened"),
   ["n|<leader>j"] = map_cu("Telescope jumplist previewer=false"):with_noremap():with_silent():with_desc("show jumplist"),
   ["n|<leader>t"] = map_cu("Telescope tagstack previewer=false"):with_noremap():with_silent():with_desc("show tagstack"),
+  ["n|<leader>q"] = map_cu("exit"):with_noremap():with_silent():with_desc("exit"),
 }
 
 bind.nvim_load_mapping(keymaps)
