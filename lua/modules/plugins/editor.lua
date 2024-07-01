@@ -90,15 +90,15 @@ M["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
   end,
 }
 
--- 三个字符跳到窗口中任何位置.
--- 覆盖了's'
--- editor["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
---   lazy = true,
---   event = "BufReadPost",
---   config = function ()
---   	require("leap").add_default_mappings()
---   end,
--- }
+-- 三个字符跳到任何窗口中任何位置，不要使用lazy加载leap，它会导致gs实现.
+-- 's': forward; 'S': backward; 'gs': other windows
+M["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
+  lazy = false,
+  -- event = "BufReadPost",
+  config = function()
+    require("leap").add_default_mappings()
+  end,
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
