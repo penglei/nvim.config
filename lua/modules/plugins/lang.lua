@@ -42,6 +42,23 @@ M["iamcco/markdown-preview.nvim"] = {
   build = ":call mkdp#util#install()",
 }
 
+M["chomosuke/typst-preview.nvim"] = {
+  version = "0.3.*",
+  ft = "typst",
+  build = function()
+    require("typst-preview").update()
+  end,
+  config = function()
+    require("typst-preview").setup({
+      -- open_cmd = "safari",
+    })
+  end,
+}
+
+M["kaarmu/typst.vim"] = {
+  ft = "typst",
+}
+
 M["chrisbra/csv.vim"] = {
   lazy = true,
   ft = "csv",

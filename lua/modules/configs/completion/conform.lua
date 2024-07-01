@@ -63,6 +63,7 @@ local function setup_conform()
       go = { "goimports", "gofmt" },
       proto = { "bufprotofmt" },
       bzl = { "buildifier" },
+      typst = { "typstyle" },
     },
     formatters = {
       shfmt = {
