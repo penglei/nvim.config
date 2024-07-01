@@ -30,15 +30,14 @@ local keymaps = {
   end):with_expr(),
 
   -- Plugin: comment.nvim
-  -- ["n|,/"] = map_callback(function()
-  --     require("Comment.api").toggle.linewise.current()
-  --   end)
-  --   :with_silent()
-  --   :with_noremap()
-  --   :with_desc("edit: toggle line-comments"),
+  ["n|,/"] = map_callback(function()
+      require("Comment.api").toggle.linewise.current()
+    end)
+    :with_silent()
+    :with_noremap()
+    :with_desc("edit: toggle line-comments"),
   -- ["v|,/"] = map_cmd("<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>"):with_silent():with_noremap():with_desc("edit: toggle selected line-comments"),
 
-  ["n|,w"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
   -- ["n|gbc"] = map_callback(function()
   -- 		return vim.v.count == 0 and et("<Plug>(comment_toggle_blockwise_current)")
   -- 			or et("<Plug>(comment_toggle_blockwise_count)")
@@ -76,6 +75,7 @@ local keymaps = {
   --	:with_expr()
   --	:with_desc("edit: Align with delimiter"),
 
+  ["n|,w"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
   -- Plugin: hop
   ["n|gw"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
   ["n|gl"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),

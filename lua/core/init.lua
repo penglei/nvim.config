@@ -49,6 +49,10 @@ local disable_distribution_plugins = function()
 end
 
 local other_leaders_map = function()
+  -- ',/' as Toggle comment
+  -- vim.api.nvim_set_keymap("n", "gc", "", { noremap = true })
+  -- vim.api.nvim_set_keymap("n", "gcc", "", { noremap = true })
+
   vim.api.nvim_set_keymap("n", ",", "", { noremap = true })
   vim.api.nvim_set_keymap("x", ",", "", { noremap = true })
 end
