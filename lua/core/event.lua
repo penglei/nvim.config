@@ -134,6 +134,7 @@ function autocmd.load_autocmds()
       { "FileType", "go", "set tabstop=2 shiftwidth=2" },
       { "FileType", "scheme", "set shiftwidth=2" },
       { "FileType", "lua", "set noexpandtab shiftwidth=4" },
+      { "FileType", "nickel", "setlocal commentstring=#%s" },
     },
     yank = {
       { "TextYankPost", "*", [[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=300})]] },
