@@ -54,6 +54,7 @@ return function()
       vim.keymap.set("n", "W", api.tree.collapse_all, opts("Collapse"))
       vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
       vim.keymap.set("n", "<leader>e", "<C-w><C-p>", opts("Back to window")) -- maybe we should do more carefully by record last window by `winnr("#")`
+      vim.keymap.set("n", "<TAB>", "<C-w><C-p>", opts("Back to window")) -- maybe we should do more carefully by record last window by `winnr("#")`
       vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
     end,
 
