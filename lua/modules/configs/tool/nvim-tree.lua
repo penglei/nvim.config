@@ -54,6 +54,7 @@ return function()
       vim.keymap.set("n", "W", api.tree.collapse_all, opts("Collapse"))
       vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
       vim.keymap.set("n", "<leader>e", "<C-w><C-p>", opts("Back to window")) -- maybe we should do more carefully by record last window by `winnr("#")`
+      vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
     end,
 
     view = {
@@ -140,8 +141,8 @@ return function()
     },
     update_focused_file = {
       enable = true,
-      -- Update the root directory of the tree if the file is not under current root directory.
-      update_root = false,
+      -- Update **the explorer root directory of the tree** if the file is not under current root directory.
+      update_root = true,
       ignore_list = {},
     },
     filters = {
