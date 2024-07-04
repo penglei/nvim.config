@@ -63,7 +63,7 @@ M.basic = {
     :with_silent()
     :with_noremap()
     :with_desc("edit: toggle line-comments"),
-  -- ["v|,/"] = map_cmd("<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>"):with_silent():with_noremap():with_desc("edit: toggle selected line-comments"),
+  ["v|,/"] = map_cmd("<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>"):with_silent():with_noremap():with_desc("edit: toggle selected line-comments"),
 
   -- Plugin: vim-easy-align
   --["n|gea"] = map_callback(function()
