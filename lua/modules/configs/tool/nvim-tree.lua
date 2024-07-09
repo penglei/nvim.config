@@ -45,6 +45,8 @@ return function()
       vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
       vim.keymap.set("n", "r", api.fs.rename, opts("Rename file"))
       vim.keymap.set("n", "e", api.fs.rename_basename, opts("Rename filename basename (without ext)"))
+      vim.keymap.set("n", "d", api.fs.remove, opts("Delete"))
+      vim.keymap.set("n", "D", api.fs.trash, opts("Trash"))
 
       vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy Fileame"))
       vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
