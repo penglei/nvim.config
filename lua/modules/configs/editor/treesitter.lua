@@ -13,7 +13,7 @@ return vim.schedule_wrap(function()
       "html",
       "javascript",
       "json",
-      "latex",
+      -- "latex", -- cause parsing markdown embed latex equation failed
       "lua",
       "make",
       "markdown",
