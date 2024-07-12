@@ -43,16 +43,12 @@ M["iamcco/markdown-preview.nvim"] = {
 }
 
 M["chomosuke/typst-preview.nvim"] = {
-  version = "0.3.*",
+  -- version = "0.3.*",
   ft = "typst",
   build = function()
     require("typst-preview").update()
   end,
-  config = function()
-    require("typst-preview").setup({
-      -- open_cmd = "safari",
-    })
-  end,
+  config = require("lang.typst"),
 }
 
 M["kaarmu/typst.vim"] = {
