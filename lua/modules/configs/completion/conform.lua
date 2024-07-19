@@ -53,7 +53,7 @@ local function setup_conform()
     format_after_save = function(bufnr)
       return { lsp_format = "never" }
     end,
-    log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.TRACE,
 
     -- Define your formatters
     formatters_by_ft = {
