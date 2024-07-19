@@ -50,8 +50,11 @@ local function setup_conform()
 
       return { timeout_ms = 500, lsp_format = "fallback" }
     end,
+    format_after_save = function(bufnr)
+      return { lsp_format = "never" }
+    end,
     log_level = vim.log.levels.DEBUG,
-    lsp_format = "prefer",
+
     -- Define your formatters
     formatters_by_ft = {
       yaml = { "yamlfmt" },
@@ -64,6 +67,7 @@ local function setup_conform()
       proto = { "bufprotofmt" },
       bzl = { "buildifier" },
       typst = { "typstyle" },
+      nickel = { "nickel" },
     },
     formatters = {
       shfmt = {
