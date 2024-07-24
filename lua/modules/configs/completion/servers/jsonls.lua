@@ -1,6 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/jsonls.lua
 return {
-  cmd = { "json-languageserver", "--stdio" },
+  -- cmd = { "json-languageserver", "--stdio" },
   flags = { debounce_text_changes = 500 },
   settings = {
     json = {
