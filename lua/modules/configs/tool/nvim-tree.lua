@@ -64,7 +64,7 @@ return function()
     view = {
       adaptive_size = true,
       centralize_selection = false,
-      width = 40,
+      width = 35,
       side = "left",
       preserve_window_proportions = false,
       number = false,

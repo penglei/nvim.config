@@ -18,6 +18,11 @@ M["catppuccin/nvim"] = {
   config = require("ui.catppuccin"),
 }
 
+M["echasnovski/mini.nvim"] = {
+  lazy = false,
+  version = false,
+}
+
 -- theme: nord
 M["shaunsingh/nord.nvim"] = {
   lazy = true,

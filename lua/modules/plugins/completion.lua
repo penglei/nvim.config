@@ -44,8 +44,9 @@ M["penglei/nvim-cmp"] = {
 }
 
 M["stevearc/conform.nvim"] = {
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
+  -- event = { "BufWritePre" },
+  -- cmd = { "ConformInfo" },
+  lazy = false,
   config = require("completion.conform"),
 }
 
