@@ -13,14 +13,20 @@ vim.cmd([[
 :nnoremap { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 ]])
 
+vim.keymap.set({ "n", "x", "o" }, "ga", function()
+  require("leap.treesitter").select()
+end)
+-- Linewise.
+vim.keymap.set({ "n", "x", "o" }, "gA", 'V<cmd>lua require("leap.treesitter").select()<cr>')
+
 M.core = {
   ["n|<Tab>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent():with_desc("goto next buffer"),
   ["n|<S-Tab>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent():with_desc("goto prev buffer"),
 
   ["n|Y"] = map_cmd("y$"):with_desc("editn: Yank text to EOL"),
   ["n|D"] = map_cmd("d$"):with_desc("editn: Delete text to EOL"),
-  ["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("editn: Next search result"),
-  ["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("editn: Prev search result"),
+  -- ["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("editn: Next search result"),
+  -- ["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("editn: Prev search result"),
   ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
   ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
   ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_desc("window: Focus down"),
@@ -80,8 +86,11 @@ M.basic = {
   ["n|,w"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
   -- Plugin: hop
   ["n|gw"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
+  ["v|gw"] = map_callback(function()
+    require("hop").hint_words()
+  end):with_desc("select range to a word by hop jump"),
   ["n|gl"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
-  ["n|gs"] = map_callback(function()
+  ["vn|gs"] = map_callback(function()
     require("hop").hint_char2()
   end):with_desc("jump in all windows"),
   ["n|s"] = map_callback(function()

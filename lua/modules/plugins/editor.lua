@@ -81,7 +81,7 @@ M["romainl/vim-cool"] = { -- better search highlighting
   event = { "CursorMoved", "InsertEnter" },
 }
 
-M["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
+M["smoka7/hop.nvim"] = {
   lazy = true,
   --branch = "v2",
   event = "BufReadPost",
@@ -94,13 +94,16 @@ M["smoka7/hop.nvim"] = { -- <leader>w|j quick jump
   end,
 }
 
--- 三个字符跳到任何窗口中任何位置，不要使用lazy加载leap，它会导致gs无法工作.
--- 's': forward; 'S': backward; 'gs': other windows
+-- 三个字符跳到任何窗口中任何位置。
+-- 绑定的快捷键： 's': forward; 'S': backward;
+-- 不要使用lazy加载leap，它会导致hop 的 gs无法工作.
 M["ggandor/leap.nvim"] = { -- s{first char}{second char}{Leap Hit}
   lazy = false,
   -- event = "BufReadPost",
   config = function()
-    require("leap")
+    local opts = require("leap").opts
+    -- safe_labels = {"s", "f", "n", "u", "t", "/", "S", "F", "N", "L", "H", "M", "U", "G", "T", "Z", "?"},
+    -- opts.labels = { "s", "f", "n", "j", "k", "l", "h", "o", "d", "w", "e", "i", "m", "b", "u", "y", "v", "r", "g", "t", "a", "q", "p", "c", "x", "z", "/", "S", "F", "N", "J", "K", "L", "H", "O", "D", "W", "E", "I", "M", "B", "U", "Y", "V", "R", "G", "T", "A", "Q", "P", "C", "X", "Z", "?", }
   end,
 }
 
