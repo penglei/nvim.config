@@ -51,6 +51,11 @@ local function setup_conform()
       return { timeout_ms = 500, lsp_format = "fallback" }
     end,
     format_after_save = function(bufnr)
+      -- Disable with a global or buffer-local variable
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+
       return { lsp_format = "never" }
     end,
     log_level = vim.log.levels.TRACE,
