@@ -68,7 +68,7 @@ return function()
     setup_lsp("dartls")
   end
   if vim.fn.executable("deno") == 1 then
-    setup_lsp("denols", { cmd = { "deno", "lsp", "--unstable-kv", "--unstable-cron" } })
+    setup_lsp("denols", { cmd = { "deno", "lsp" } })
   end
   -- lspconfig.tsserver.setup{}
 
