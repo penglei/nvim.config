@@ -20,6 +20,7 @@ function Lazy:ensure_loader()
       "--filter=blob:none",
       "--branch=stable",
       "https://github.com/folke/lazy.nvim.git",
+      lazypath
     })
   end
 
